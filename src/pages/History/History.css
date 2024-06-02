@@ -1,0 +1,85 @@
+* {
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  /* background-color: white; */
+}
+
+/* src/styles.css */
+.history-card {
+  /* background-color: gray;  */
+  border-radius: 8px; /* Rounded corners */
+  padding: 16px; /* Padding inside the card */
+  margin: 16px 0; /* Margin between cards */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.history-card h4 {
+  padding: 30px;
+  margin: 0 0 8px;
+  font-size: 1.25em;
+  color: white;
+}
+
+.history-card p {
+  margin: 0;
+  color: white;
+}
+
+.inputbox {
+  margin: 20px;
+  position: relative;
+  width: 196px;
+}
+
+.inputbox input {
+  position: relative;
+  width: 100%;
+  padding: 20px 10px 10px;
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+  border: none;
+  color: #23242a;
+  font-size: 1em;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+  z-index: 10;
+}
+
+.inputbox span {
+  position: absolute;
+  left: 0;
+  padding: 20px 10px 10px;
+  font-size: 1em;
+  color: #8f8f8f;
+  letter-spacing: 00.05em;
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.inputbox input:valid ~ span,
+.inputbox input:focus ~ span {
+  color: #45f3ff;
+  transform: translateX(-10px) translateY(-34px);
+  font-size: 0, 75em;
+}
+
+.inputbox i {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #45f3ff;
+  border-radius: 4px;
+  transition: 0.5s;
+  pointer-events: none;
+  z-index: 9;
+}
+
+.inputbox input:valid ~ i,
+.inputbox input:focus ~ i {
+  height: 44px;
+}

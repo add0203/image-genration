@@ -1,0 +1,28 @@
+.header-parent-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  .left {
+    padding: 15;
+    flex: 7;
+    display: flex;
+    gap: 20;
+    a {
+      font-size: 1.5rem;
+      text-decoration: none;
+      color: white;
+      font-family: "Anaheim", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+    /* background-color: blue; */
+  }
+  .right {
+    padding: 15;
+    color: white;
+    /* border-radius: 100%; */
+    /* flex: ; */
+    background-color: green;
+  }
+}
