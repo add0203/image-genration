@@ -5,7 +5,7 @@
   "main": "day-14/session-1/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "index.html"
+    "build": "parcel build index.html"
   },
   "author": "",
   "license": "ISC",
