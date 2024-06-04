@@ -7,6 +7,7 @@ import History from "./src/pages/History/History";
 import HistoryInfoPage from "./src/pages/History/HistoryInfoPage";
 import PointsContext from "./src/context/Context";
 import SignUp from "./src/pages/auth/signUp/SignUp";
+import LogIn from "./src/pages/auth/logIn/LogIn";
 
 const parent = document.getElementById("root");
 const root = ReactDOM.createRoot(parent);
@@ -26,44 +27,27 @@ const App = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: (
-        <Homepage
-        // userPoints={userPoints} setUserPoints={setUserPoints}
-        />
-      ),
+      element: <Homepage />,
     },
     {
       path: "/image-genrator",
-      element: (
-        <ImageGenrator
-        //  userPoints={userPoints} setUserPoints={setUserPoints}
-        />
-      ),
+      element: <ImageGenrator />,
     },
     {
       path: "/sign-up",
-      element: (
-        <SignUp
-        //  userPoints={userPoints} setUserPoints={setUserPoints}
-        />
-      ),
+      element: <SignUp />,
+    },
+    {
+      path: "/log-in",
+      element: <LogIn />,
     },
     {
       path: "/history",
-      element: (
-        <History
-        // userPoints={userPoints} setUserPoints={setUserPoints}
-        />
-      ),
+      element: <History />,
     },
     {
       path: "/history/:historyId",
-      element: (
-        <HistoryInfoPage
-        // userPoints={userPoints}
-        // setUserPoints={setUserPoints}
-        />
-      ),
+      element: <HistoryInfoPage />,
     },
   ]);
 

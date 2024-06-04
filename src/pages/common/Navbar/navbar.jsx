@@ -33,6 +33,9 @@ const Navbar = (props) => {
         <Link to="/sign-up" style={customColor("signUp")}>
           SingUp
         </Link>
+        <Link to="/log-in" style={customColor("signIn")}>
+          LogIn
+        </Link>
       </div>
       <div className="right">
         <div className="circle">{userPoints}</div>

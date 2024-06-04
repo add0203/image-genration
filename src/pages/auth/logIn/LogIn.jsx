@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import Navbar from "../../common/Navbar/navbar";
-import "./SignUp.css";
 
-const SignUp = () => {
+const LogIn = () => {
   const [password, setPassword] = useState();
   const [email, setEmail] = useState();
+  const [response, setResponse] = useState(" ");
+
   const handleClick = async () => {
-    console.log(password, email);
     if (!email && !password) {
       return;
     }
-    const res = await fetch(`${process.env.BACKEND_URL}/api/v1/auth/signUp`, {
-      // http://localhost:5001/api/v1/auth/signup
+
+    const res = await fetch(`${process.env.BACKEND_URL}/api/v1/auth/logIn`, {
       method: "POST",
       body: JSON.stringify({
         email,
@@ -21,14 +21,18 @@ const SignUp = () => {
         "Content-Type": "application/json",
       },
     });
+    // if (!res.ok) {
+
+    // }
     const data = await res.json();
-    //display the return res from the backend with status
     console.log(data);
+    setResponse(data);
   };
+
   return (
-    <div className="sign-up-container">
-      <Navbar pageName="signUp" />
-      <div className="sign-up-box">
+    <div className="log-in-container">
+      <Navbar pageName="logIn" />
+      <div className="log-in-box">
         <input
           type="text"
           onChange={(e) => {
@@ -41,11 +45,10 @@ const SignUp = () => {
             setPassword(e.target.value);
           }}
         />
-
-        <button onClick={handleClick}>SignUp</button>
+        <button onClick={handleClick}></button>
       </div>
     </div>
   );
 };
 
-export default SignUp;
+export default LogIn;
