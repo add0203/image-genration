@@ -26,20 +26,23 @@ const ImageGenrator = () => {
     //   console.error("No token found in localStorage");
     //   return;
     // }
-    console.log(localStorage.getItem("authorization"));
+    // console.log(localStorage.getItem("authorization"));
 
     // setUserPoints(userPoints - 1);
     try {
-      const res = await fetch(`${process.env.BACKEND_URL}/api/v1/image`, {
-        method: "POST",
-        body: JSON.stringify({
-          searchText: searchText,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-          "authorization": "Bearer " + localStorage.getItem("authorization"),
-        },
-      });
+      const res = await fetch(
+        `${process.env.BACKEND_URL}/api/v1/image/genrateImage`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            searchText: searchText,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+            authorization: "Bearer " + localStorage.getItem("authorization"),
+          },
+        }
+      );
       const data = await res.json();
       if (data?.status === 200) {
         setImgSrc(data.data.imageUrl);

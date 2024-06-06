@@ -34444,17 +34444,17 @@ const ImageGenrator = ()=>{
         //   console.error("No token found in localStorage");
         //   return;
         // }
-        console.log(localStorage.getItem("authorization"));
+        // console.log(localStorage.getItem("authorization"));
         // setUserPoints(userPoints - 1);
         try {
-            const res = await fetch(`${"http://localhost:5001"}/api/v1/image`, {
+            const res = await fetch(`${"http://localhost:5001"}/api/v1/image/genrateImage`, {
                 method: "POST",
                 body: JSON.stringify({
                     searchText: searchText
                 }),
                 headers: {
                     "Content-Type": "application/json",
-                    "authorization": "Bearer " + localStorage.getItem("authorization")
+                    authorization: "Bearer " + localStorage.getItem("authorization")
                 }
             });
             const data = await res.json();
@@ -34469,7 +34469,7 @@ const ImageGenrator = ()=>{
                 pageName: "imageGenerator"
             }, void 0, false, {
                 fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                lineNumber: 54,
+                lineNumber: 57,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34479,7 +34479,7 @@ const ImageGenrator = ()=>{
                         src: imageSrc
                     }, void 0, false, {
                         fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                        lineNumber: 57,
+                        lineNumber: 60,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34493,18 +34493,18 @@ const ImageGenrator = ()=>{
                                 type: "text"
                             }, void 0, false, {
                                 fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                                lineNumber: 59,
+                                lineNumber: 62,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {}, void 0, false, {
                                 fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                                lineNumber: 67,
+                                lineNumber: 70,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                        lineNumber: 58,
+                        lineNumber: 61,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -34515,19 +34515,19 @@ const ImageGenrator = ()=>{
                         children: "Generate"
                     }, void 0, false, {
                         fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                        lineNumber: 71,
+                        lineNumber: 74,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                lineNumber: 56,
+                lineNumber: 59,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-        lineNumber: 53,
+        lineNumber: 56,
         columnNumber: 5
     }, undefined);
 };
@@ -34566,10 +34566,23 @@ const History = (props)=>{
     const [data, setData] = (0, _react.useState)([]);
     const getData = async ()=>{
         try {
-            const res = await fetch(`https:dummyjson.com/products/search?q=${textValue}`);
+            // const res = await fetch(
+            //   `${process.env.BACKEND_URL}/api/v1/image/history`
+            // );
+            const res = await fetch(`${"http://localhost:5001"}/api/v1/image/history`, {
+                method: "GET",
+                // body: JSON.stringify({
+                //   searchText: searchText,
+                // }),
+                headers: {
+                    "Content-Type": "application/json",
+                    authorization: "Bearer " + localStorage.getItem("authorization")
+                }
+            });
             const obj = await res.json();
-            // let data = obj.products; //static variable gets updated
-            setData(obj.products);
+            let data = obj.data; //static variable gets updated
+            setData(data);
+            console.log(obj);
         // console.log(data);
         } catch (error) {
             console.log(error);
@@ -34587,6 +34600,22 @@ const History = (props)=>{
     }, [
         textValue
     ]);
+    //css
+    const cardStyle = {
+        border: "1px solid #ddd",
+        borderRadius: "8px",
+        padding: "16px",
+        margin: "16px",
+        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+        maxWidth: "auto",
+        textAlign: "center"
+    };
+    const imageStyle = {
+        width: "100px",
+        height: "100px",
+        objectFit: "cover",
+        borderRadius: "8px"
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navbarDefault.default), {
@@ -34595,7 +34624,7 @@ const History = (props)=>{
                 setUserPoints: setUserPoints
             }, void 0, false, {
                 fileName: "src/pages/History/History.jsx",
-                lineNumber: 175,
+                lineNumber: 76,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34607,61 +34636,70 @@ const History = (props)=>{
                         type: "text"
                     }, void 0, false, {
                         fileName: "src/pages/History/History.jsx",
-                        lineNumber: 181,
+                        lineNumber: 82,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {}, void 0, false, {
                         fileName: "src/pages/History/History.jsx",
-                        lineNumber: 187,
+                        lineNumber: 88,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/pages/History/History.jsx",
-                lineNumber: 180,
+                lineNumber: 81,
                 columnNumber: 7
             }, undefined),
-            data.map((item)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            textValue && data.map((item)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "history-card",
+                        style: cardStyle,
                         children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
-                                children: item.title
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                src: item.imageUrl,
+                                alt: item.searchText,
+                                style: imageStyle
                             }, void 0, false, {
                                 fileName: "src/pages/History/History.jsx",
-                                lineNumber: 193,
-                                columnNumber: 13
+                                lineNumber: 94,
+                                columnNumber: 15
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                                children: item.searchText
+                            }, void 0, false, {
+                                fileName: "src/pages/History/History.jsx",
+                                lineNumber: 99,
+                                columnNumber: 15
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                children: item.description
+                                children: item.imageUrl
                             }, void 0, false, {
                                 fileName: "src/pages/History/History.jsx",
-                                lineNumber: 194,
-                                columnNumber: 13
+                                lineNumber: 100,
+                                columnNumber: 15
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                to: `/history/${item.id}`,
+                                to: `${item.imageUrl}`,
                                 children: "More.."
                             }, void 0, false, {
                                 fileName: "src/pages/History/History.jsx",
-                                lineNumber: 195,
-                                columnNumber: 13
+                                lineNumber: 103,
+                                columnNumber: 15
                             }, undefined)
                         ]
-                    }, void 0, true, {
+                    }, item._id, true, {
                         fileName: "src/pages/History/History.jsx",
-                        lineNumber: 192,
-                        columnNumber: 11
+                        lineNumber: 93,
+                        columnNumber: 13
                     }, undefined)
-                }, item.id, false, {
+                }, item._id, false, {
                     fileName: "src/pages/History/History.jsx",
-                    lineNumber: 191,
-                    columnNumber: 9
+                    lineNumber: 92,
+                    columnNumber: 11
                 }, undefined))
         ]
     }, void 0, true, {
         fileName: "src/pages/History/History.jsx",
-        lineNumber: 174,
+        lineNumber: 75,
         columnNumber: 5
     }, undefined);
 };
