@@ -29,20 +29,48 @@ const SignUp = () => {
     <div className="sign-up-container">
       <Navbar pageName="signUp" />
       <div className="sign-up-box">
-        <input
+        <div class="inputbox">
+          <input
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+            placeholder="Email"
+            required="required"
+            type="text"
+          />
+
+          <i></i>
+        </div>
+        <div class="inputbox">
+          <input
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+            placeholder="Password"
+            required="required"
+            type="text"
+          />
+
+          <i></i>
+        </div>
+        {/* <input
           type="text"
           onChange={(e) => {
             setEmail(e.target.value);
           }}
-        />
-        <input
+          placeholder="Email"
+        /> */}
+        {/* <input
           type="text"
           onChange={(e) => {
             setPassword(e.target.value);
           }}
-        />
+          placeholder="Password"
+        /> */}
 
-        <button onClick={handleClick}>SignUp</button>
+        <button className="button-50" role="button" onClick={handleClick}>
+          SignUp
+        </button>
       </div>
     </div>
   );

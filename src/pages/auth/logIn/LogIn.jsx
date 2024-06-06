@@ -8,7 +8,6 @@ const LogIn = () => {
   const [password, setPassword] = useState();
   const [email, setEmail] = useState();
 
-
   const handleClick = async () => {
     if (!email && !password) {
       return;
@@ -37,7 +36,7 @@ const LogIn = () => {
   return (
     <div className="log-in-container">
       <Navbar pageName="logIn" />
-      <div className="log-in-box">
+      {/* <div className="log-in-box">
         <input
           type="text"
           onChange={(e) => {
@@ -51,6 +50,53 @@ const LogIn = () => {
           }}
         />
         <button onClick={handleClick}>LogIn</button>
+      </div> */}
+
+      <div className="log-in-box">
+        <div class="inputbox">
+          <input
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+            required="required"
+            type="text"
+            placeholder="Email"
+          />
+
+          <i></i>
+        </div>
+        {/*         
+        <input
+          className="inputbox"
+          type="text"
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+          placeholder="Email"
+        /> */}
+        {/* <input
+          type="password"
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+          placeholder="Password"
+        /> */}
+        <div class="inputbox">
+          <input
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+            placeholder="Password"
+            required="required"
+            type="text"
+          />
+
+          <i></i>
+        </div>
+
+        <button className="button-50" role="button" onClick={handleClick}>
+          LogIn
+        </button>
       </div>
     </div>
   );

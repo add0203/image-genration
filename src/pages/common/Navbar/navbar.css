@@ -19,10 +19,28 @@
     /* background-color: blue; */
   }
   .right {
-    padding: 15;
-    color: white;
-    /* border-radius: 100%; */
-    /* flex: ; */
-    background-color: green;
+    padding: 4px;
+    color: brown;
+    font-weight: bold;
+    position: absolute;
+    top: 19px;
+    right: 209px;
+    background-color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   }
 }
+
+/* .right {
+  padding: 15;
+  color: white;
+
+
+  background-color: green;
+  
+} */

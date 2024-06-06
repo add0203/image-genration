@@ -2,9 +2,194 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: Courier New, Courier, monospace;
 }
 
 body {
   background-color: black;
   color: white;
+}
+
+.button-50 {
+  appearance: button;
+  background-color: #fff; /* Changed to white */
+  background-image: none;
+  border: 1px solid #fff; /* Changed to white */
+  border-radius: 4px;
+  box-shadow: #000 4px 4px 0 0, #fff 4px 4px 0 1px; /* Swapped colors */
+  box-sizing: border-box;
+  color: #000; /* Changed to black */
+  cursor: pointer;
+  display: inline-block;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  /* margin: 0 5px 10px 0; */
+  overflow: visible;
+  padding: 12px 40px;
+  margin: 12px 40px;
+  text-align: center;
+  text-transform: none;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.button-50:focus {
+  text-decoration: none;
+}
+
+.button-50:hover {
+  text-decoration: none;
+}
+
+.button-50:active {
+  box-shadow: rgba(0, 0, 0, 0.125) 0 3px 5px inset;
+  outline: 0;
+}
+
+.button-50:not([disabled]):active {
+  box-shadow: #000 2px 2px 0 0, #fff 2px 2px 0 1px; /* Swapped colors */
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button-50 {
+    padding: 12px 50px;
+  }
+}
+
+/* input */
+
+.inputbox {
+  margin: 20px;
+  position: relative;
+  width: 196px;
+}
+
+.inputbox input {
+  position: relative;
+  width: 100%;
+  padding: 20px 10px 10px;
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+  border: none;
+  color: #23242a;
+  font-size: 1em;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+  z-index: 10;
+}
+
+.inputbox span {
+  position: absolute;
+  left: 0;
+  padding: 20px 10px 10px;
+  font-size: 1em;
+  color: #8f8f8f;
+  letter-spacing: 00.05em;
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.inputbox input:valid ~ span,
+.inputbox input:focus ~ span {
+  color: #45f3ff;
+  transform: translateX(-10px) translateY(-34px);
+  font-size: 0, 75em;
+}
+
+.inputbox i {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #45f3ff;
+  border-radius: 4px;
+  transition: 0.5s;
+  pointer-events: none;
+  z-index: 9;
+}
+
+.inputbox input:valid ~ i,
+.inputbox input:focus ~ i {
+  height: 44px;
+}
+
+/* buttion */
+
+/* <!-- HTML !-->
+<button class="button-86" role="button">Button 86</button> */
+
+/* CSS */
+.button-86 {
+  all: unset;
+  width: 100px;
+  height: 30px;
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  position: relative;
+  color: #f0f0f0;
+  cursor: pointer;
+  z-index: 1;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-86::after,
+.button-86::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -99999;
+  transition: all 0.4s;
+}
+
+.button-86::before {
+  transform: translate(0%, 0%);
+  width: 100%;
+  height: 100%;
+  background: #28282d;
+  border-radius: 10px;
+}
+
+.button-86::after {
+  transform: translate(10px, 10px);
+  width: 35px;
+  height: 35px;
+  background: #ffffff15;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 50px;
+}
+
+.button-86:hover::before {
+  transform: translate(5%, 20%);
+  width: 110%;
+  height: 110%;
+}
+
+.button-86:hover::after {
+  border-radius: 10px;
+  transform: translate(0, 0);
+  width: 100%;
+  height: 100%;
+}
+
+.button-86:active::after {
+  transition: 0s;
+  transform: translate(0, 5%);
 }

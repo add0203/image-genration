@@ -1,8 +1,10 @@
 .log-in-container {
+  
   .log-in-box {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+  gap: 10px;
   }
 }
+

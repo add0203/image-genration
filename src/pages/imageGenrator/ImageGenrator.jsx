@@ -5,14 +5,6 @@ import { useContext } from "react";
 import PointsContext from "../../context/Context";
 
 const ImageGenrator = () => {
-  // const [token, setToken] = useState("");
-
-  // useEffect(() => {
-  //   // Retrieve the token from localStorage when the component mounts
-  //   const storedToken = localStorage.getItem("authorization");
-  //   setToken(storedToken);
-  // }, []);
-
   const [searchText, setSearchText] = useState();
   const [imageSrc, setImgSrc] = useState("");
 
@@ -63,6 +55,7 @@ const ImageGenrator = () => {
             onChange={(e) => {
               func(e);
             }}
+            placeholder="What to create?"
             required="required"
             type="text"
           />
@@ -72,6 +65,8 @@ const ImageGenrator = () => {
         {/* onClick={() => setUserPoints(userPoints + 1)} */}
         {/* <button onClick={handleClick}>Generate</button> */}
         <button
+          className="button-50"
+          role="button"
           onClick={() => {
             handleClick();
             setUserPoints(userPoints - 1);

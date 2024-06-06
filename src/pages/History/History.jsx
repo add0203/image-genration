@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./History.css";
 import Navbar from "../common/Navbar/navbar";
 
-
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -50,10 +49,7 @@ const History = (props) => {
     getData();
   }, [textValue]);
 
-
-
   //css
-
 
   const cardStyle = {
     border: "1px solid #ddd",
@@ -100,7 +96,7 @@ const History = (props) => {
               <p>{item.imageUrl}</p>
 
               {/* <Link to={`/history/${item.imageUrl}`}>More..</Link> */}
-              <Link to={`${item.imageUrl}`}>More..</Link>
+              <Link to={`${item.imageUrl}`}>open...</Link>
             </div>
           </div>
         ))}

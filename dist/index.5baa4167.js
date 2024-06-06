@@ -2972,24 +2972,39 @@ var _signUp = require("./src/pages/auth/signUp/SignUp");
 var _signUpDefault = parcelHelpers.interopDefault(_signUp);
 var _logIn = require("./src/pages/auth/logIn/LogIn");
 var _logInDefault = parcelHelpers.interopDefault(_logIn);
+var _payment = require("./src/pages/payment/payment");
+var _paymentDefault = parcelHelpers.interopDefault(_payment);
 var _s = $RefreshSig$();
 const parent = document.getElementById("root");
 const root = (0, _clientDefault.default).createRoot(parent);
-const Heading = /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-    children: "Hello React"
-}, void 0, false, {
-    fileName: "app.js",
-    lineNumber: 19,
-    columnNumber: 17
-}, undefined);
+// const Heading = <h1>Hello React</h1>;
 const App = ()=>{
     _s();
     const [redirectToLogin, setRedirectToLogin] = (0, _react.useState)(false);
-    const [userPoints, setUserPoints] = (0, _react.useState)(5);
+    const [userPoints, setUserPoints] = (0, _react.useState)(1);
     const [isLoggedIn, setIsLoggedIn] = (0, _react.useState)(()=>{
         if (localStorage.getItem("authorization")) return true;
         else return false;
     });
+    const ConditionalComponent = ({ isLoggedIn, userPoints })=>{
+        if (!isLoggedIn) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Navigate), {
+            to: "/log-in"
+        }, void 0, false, {
+            fileName: "app.js",
+            lineNumber: 35,
+            columnNumber: 14
+        }, undefined);
+        if (userPoints === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _paymentDefault.default), {}, void 0, false, {
+            fileName: "app.js",
+            lineNumber: 39,
+            columnNumber: 14
+        }, undefined);
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _imageGenratorDefault.default), {}, void 0, false, {
+            fileName: "app.js",
+            lineNumber: 42,
+            columnNumber: 12
+        }, undefined);
+    };
     const login = ()=>{
         setIsLoggedIn(true);
     };
@@ -3002,7 +3017,7 @@ const App = ()=>{
             path: "/",
             element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _homepageDefault.default), {}, void 0, false, {
                 fileName: "app.js",
-                lineNumber: 44,
+                lineNumber: 56,
                 columnNumber: 16
             }, undefined)
         },
@@ -3010,13 +3025,13 @@ const App = ()=>{
             path: "/image-genrator",
             element: isLoggedIn ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _imageGenratorDefault.default), {}, void 0, false, {
                 fileName: "app.js",
-                lineNumber: 48,
+                lineNumber: 60,
                 columnNumber: 29
             }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Navigate), {
                 to: "/log-in"
             }, void 0, false, {
                 fileName: "app.js",
-                lineNumber: 48,
+                lineNumber: 60,
                 columnNumber: 49
             }, undefined)
         },
@@ -3024,7 +3039,7 @@ const App = ()=>{
             path: "/sign-up",
             element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signUpDefault.default), {}, void 0, false, {
                 fileName: "app.js",
-                lineNumber: 53,
+                lineNumber: 65,
                 columnNumber: 16
             }, undefined)
         },
@@ -3032,7 +3047,7 @@ const App = ()=>{
             path: "/log-in",
             element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _logInDefault.default), {}, void 0, false, {
                 fileName: "app.js",
-                lineNumber: 57,
+                lineNumber: 69,
                 columnNumber: 16
             }, undefined)
         },
@@ -3040,13 +3055,13 @@ const App = ()=>{
             path: "/history",
             element: isLoggedIn ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _historyDefault.default), {}, void 0, false, {
                 fileName: "app.js",
-                lineNumber: 61,
+                lineNumber: 73,
                 columnNumber: 29
             }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Navigate), {
                 to: "/log-in"
             }, void 0, false, {
                 fileName: "app.js",
-                lineNumber: 61,
+                lineNumber: 73,
                 columnNumber: 43
             }, undefined)
         },
@@ -3054,8 +3069,22 @@ const App = ()=>{
             path: "/history/:historyId",
             element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _historyInfoPageDefault.default), {}, void 0, false, {
                 fileName: "app.js",
-                lineNumber: 66,
+                lineNumber: 78,
                 columnNumber: 16
+            }, undefined)
+        },
+        {
+            path: "/payment",
+            element: userPoints === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _paymentDefault.default), {}, void 0, false, {
+                fileName: "app.js",
+                lineNumber: 82,
+                columnNumber: 35
+            }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Navigate), {
+                to: "/payment"
+            }, void 0, false, {
+                fileName: "app.js",
+                lineNumber: 82,
+                columnNumber: 49
             }, undefined)
         }
     ]);
@@ -3071,20 +3100,20 @@ const App = ()=>{
             router: router
         }, void 0, false, {
             fileName: "app.js",
-            lineNumber: 80,
+            lineNumber: 96,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "app.js",
-        lineNumber: 71,
+        lineNumber: 87,
         columnNumber: 5
     }, undefined);
 };
-_s(App, "Wj4806Wtix9h/yjFP7KdtwltK2s=");
+_s(App, "T/sk2ZJfrO19PpxhGumExFIRFjo=");
 _c = App;
 root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
     fileName: "app.js",
-    lineNumber: 85,
+    lineNumber: 101,
     columnNumber: 13
 }, undefined));
 var _c;
@@ -3095,7 +3124,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom/client":"lOjBx","./src/pages/Homepage/Homepage":"k1lv1","./src/pages/imageGenrator/ImageGenrator":"lW1HJ","react-router-dom":"9xmpe","./src/pages/History/History":"hefR8","./src/pages/History/HistoryInfoPage":"fVWxf","./src/context/Context":"5uxAP","./src/pages/auth/signUp/SignUp":"9eIuF","./src/pages/auth/logIn/LogIn":"5DL9j","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom/client":"lOjBx","./src/pages/Homepage/Homepage":"k1lv1","./src/pages/imageGenrator/ImageGenrator":"lW1HJ","react-router-dom":"9xmpe","./src/pages/History/History":"hefR8","./src/pages/History/HistoryInfoPage":"fVWxf","./src/context/Context":"5uxAP","./src/pages/auth/signUp/SignUp":"9eIuF","./src/pages/auth/logIn/LogIn":"5DL9j","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./src/pages/payment/payment":"928kE"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("ee51401569654d91");
 
@@ -27433,7 +27462,7 @@ const Navbar = (props)=>{
                         children: "Home"
                     }, void 0, false, {
                         fileName: "src/pages/common/Navbar/navbar.jsx",
-                        lineNumber: 36,
+                        lineNumber: 35,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -27442,7 +27471,7 @@ const Navbar = (props)=>{
                         children: "Image Genrator"
                     }, void 0, false, {
                         fileName: "src/pages/common/Navbar/navbar.jsx",
-                        lineNumber: 40,
+                        lineNumber: 39,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -27451,7 +27480,7 @@ const Navbar = (props)=>{
                         children: "History"
                     }, void 0, false, {
                         fileName: "src/pages/common/Navbar/navbar.jsx",
-                        lineNumber: 44,
+                        lineNumber: 43,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -27460,7 +27489,7 @@ const Navbar = (props)=>{
                         children: "SingUp"
                     }, void 0, false, {
                         fileName: "src/pages/common/Navbar/navbar.jsx",
-                        lineNumber: 47,
+                        lineNumber: 46,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -27469,13 +27498,13 @@ const Navbar = (props)=>{
                         children: "LogIn"
                     }, void 0, false, {
                         fileName: "src/pages/common/Navbar/navbar.jsx",
-                        lineNumber: 50,
+                        lineNumber: 49,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/pages/common/Navbar/navbar.jsx",
-                lineNumber: 35,
+                lineNumber: 34,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27488,28 +27517,32 @@ const Navbar = (props)=>{
                 children: userPoints
             }, void 0, false, {
                 fileName: "src/pages/common/Navbar/navbar.jsx",
-                lineNumber: 54,
+                lineNumber: 53,
                 columnNumber: 7
             }, undefined),
             isLoggedIn ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                className: "button-50",
+                role: "button",
                 onClick: logout,
                 children: "Logout"
             }, void 0, false, {
                 fileName: "src/pages/common/Navbar/navbar.jsx",
-                lineNumber: 61,
+                lineNumber: 60,
                 columnNumber: 9
             }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                className: "button-50",
+                role: "button",
                 onClick: handleLoginClick,
                 children: "Login"
             }, void 0, false, {
                 fileName: "src/pages/common/Navbar/navbar.jsx",
-                lineNumber: 63,
+                lineNumber: 64,
                 columnNumber: 9
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/pages/common/Navbar/navbar.jsx",
-        lineNumber: 34,
+        lineNumber: 33,
         columnNumber: 5
     }, undefined);
 };
@@ -34427,12 +34460,6 @@ var _contextDefault = parcelHelpers.interopDefault(_context);
 var _s = $RefreshSig$();
 const ImageGenrator = ()=>{
     _s();
-    // const [token, setToken] = useState("");
-    // useEffect(() => {
-    //   // Retrieve the token from localStorage when the component mounts
-    //   const storedToken = localStorage.getItem("authorization");
-    //   setToken(storedToken);
-    // }, []);
     const [searchText, setSearchText] = (0, _react.useState)();
     const [imageSrc, setImgSrc] = (0, _react.useState)("");
     const func = (e)=>{
@@ -34469,7 +34496,7 @@ const ImageGenrator = ()=>{
                 pageName: "imageGenerator"
             }, void 0, false, {
                 fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                lineNumber: 57,
+                lineNumber: 49,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34479,7 +34506,7 @@ const ImageGenrator = ()=>{
                         src: imageSrc
                     }, void 0, false, {
                         fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                        lineNumber: 60,
+                        lineNumber: 52,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34489,25 +34516,28 @@ const ImageGenrator = ()=>{
                                 onChange: (e)=>{
                                     func(e);
                                 },
+                                placeholder: "What to create?",
                                 required: "required",
                                 type: "text"
                             }, void 0, false, {
                                 fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                                lineNumber: 62,
+                                lineNumber: 54,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {}, void 0, false, {
                                 fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                                lineNumber: 70,
+                                lineNumber: 63,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                        lineNumber: 61,
+                        lineNumber: 53,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        className: "button-50",
+                        role: "button",
                         onClick: ()=>{
                             handleClick();
                             setUserPoints(userPoints - 1);
@@ -34515,19 +34545,19 @@ const ImageGenrator = ()=>{
                         children: "Generate"
                     }, void 0, false, {
                         fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                        lineNumber: 74,
+                        lineNumber: 67,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                lineNumber: 59,
+                lineNumber: 51,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-        lineNumber: 56,
+        lineNumber: 48,
         columnNumber: 5
     }, undefined);
 };
@@ -34624,7 +34654,7 @@ const History = (props)=>{
                 setUserPoints: setUserPoints
             }, void 0, false, {
                 fileName: "src/pages/History/History.jsx",
-                lineNumber: 76,
+                lineNumber: 72,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34636,18 +34666,18 @@ const History = (props)=>{
                         type: "text"
                     }, void 0, false, {
                         fileName: "src/pages/History/History.jsx",
-                        lineNumber: 82,
+                        lineNumber: 78,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {}, void 0, false, {
                         fileName: "src/pages/History/History.jsx",
-                        lineNumber: 88,
+                        lineNumber: 84,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/pages/History/History.jsx",
-                lineNumber: 81,
+                lineNumber: 77,
                 columnNumber: 7
             }, undefined),
             textValue && data.map((item)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34660,46 +34690,46 @@ const History = (props)=>{
                                 style: imageStyle
                             }, void 0, false, {
                                 fileName: "src/pages/History/History.jsx",
-                                lineNumber: 94,
+                                lineNumber: 90,
                                 columnNumber: 15
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
                                 children: item.searchText
                             }, void 0, false, {
                                 fileName: "src/pages/History/History.jsx",
-                                lineNumber: 99,
+                                lineNumber: 95,
                                 columnNumber: 15
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                 children: item.imageUrl
                             }, void 0, false, {
                                 fileName: "src/pages/History/History.jsx",
-                                lineNumber: 100,
+                                lineNumber: 96,
                                 columnNumber: 15
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                                 to: `${item.imageUrl}`,
-                                children: "More.."
+                                children: "open..."
                             }, void 0, false, {
                                 fileName: "src/pages/History/History.jsx",
-                                lineNumber: 103,
+                                lineNumber: 99,
                                 columnNumber: 15
                             }, undefined)
                         ]
                     }, item._id, true, {
                         fileName: "src/pages/History/History.jsx",
-                        lineNumber: 93,
+                        lineNumber: 89,
                         columnNumber: 13
                     }, undefined)
                 }, item._id, false, {
                     fileName: "src/pages/History/History.jsx",
-                    lineNumber: 92,
+                    lineNumber: 88,
                     columnNumber: 11
                 }, undefined))
         ]
     }, void 0, true, {
         fileName: "src/pages/History/History.jsx",
-        lineNumber: 75,
+        lineNumber: 71,
         columnNumber: 5
     }, undefined);
 };
@@ -34827,32 +34857,66 @@ const SignUp = ()=>{
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "sign-up-box",
                 children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        type: "text",
-                        onChange: (e)=>{
-                            setEmail(e.target.value);
-                        }
-                    }, void 0, false, {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        class: "inputbox",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                onChange: (e)=>{
+                                    setEmail(e.target.value);
+                                },
+                                placeholder: "Email",
+                                required: "required",
+                                type: "text"
+                            }, void 0, false, {
+                                fileName: "src/pages/auth/signUp/SignUp.jsx",
+                                lineNumber: 33,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {}, void 0, false, {
+                                fileName: "src/pages/auth/signUp/SignUp.jsx",
+                                lineNumber: 42,
+                                columnNumber: 11
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
                         fileName: "src/pages/auth/signUp/SignUp.jsx",
                         lineNumber: 32,
                         columnNumber: 9
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        type: "text",
-                        onChange: (e)=>{
-                            setPassword(e.target.value);
-                        }
-                    }, void 0, false, {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        class: "inputbox",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                onChange: (e)=>{
+                                    setPassword(e.target.value);
+                                },
+                                placeholder: "Password",
+                                required: "required",
+                                type: "text"
+                            }, void 0, false, {
+                                fileName: "src/pages/auth/signUp/SignUp.jsx",
+                                lineNumber: 45,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {}, void 0, false, {
+                                fileName: "src/pages/auth/signUp/SignUp.jsx",
+                                lineNumber: 54,
+                                columnNumber: 11
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
                         fileName: "src/pages/auth/signUp/SignUp.jsx",
-                        lineNumber: 38,
+                        lineNumber: 44,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        className: "button-50",
+                        role: "button",
                         onClick: handleClick,
                         children: "SignUp"
                     }, void 0, false, {
                         fileName: "src/pages/auth/signUp/SignUp.jsx",
-                        lineNumber: 45,
+                        lineNumber: 71,
                         columnNumber: 9
                     }, undefined)
                 ]
@@ -34929,50 +34993,84 @@ const LogIn = ()=>{
                 pageName: "logIn"
             }, void 0, false, {
                 fileName: "src/pages/auth/logIn/LogIn.jsx",
-                lineNumber: 39,
+                lineNumber: 38,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "log-in-box",
                 children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        type: "text",
-                        onChange: (e)=>{
-                            setEmail(e.target.value);
-                        }
-                    }, void 0, false, {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        class: "inputbox",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                onChange: (e)=>{
+                                    setEmail(e.target.value);
+                                },
+                                required: "required",
+                                type: "text",
+                                placeholder: "Email"
+                            }, void 0, false, {
+                                fileName: "src/pages/auth/logIn/LogIn.jsx",
+                                lineNumber: 57,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {}, void 0, false, {
+                                fileName: "src/pages/auth/logIn/LogIn.jsx",
+                                lineNumber: 66,
+                                columnNumber: 11
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
                         fileName: "src/pages/auth/logIn/LogIn.jsx",
-                        lineNumber: 41,
+                        lineNumber: 56,
                         columnNumber: 9
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        type: "text",
-                        onChange: (e)=>{
-                            setPassword(e.target.value);
-                        }
-                    }, void 0, false, {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        class: "inputbox",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                onChange: (e)=>{
+                                    setPassword(e.target.value);
+                                },
+                                placeholder: "Password",
+                                required: "required",
+                                type: "text"
+                            }, void 0, false, {
+                                fileName: "src/pages/auth/logIn/LogIn.jsx",
+                                lineNumber: 85,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {}, void 0, false, {
+                                fileName: "src/pages/auth/logIn/LogIn.jsx",
+                                lineNumber: 94,
+                                columnNumber: 11
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
                         fileName: "src/pages/auth/logIn/LogIn.jsx",
-                        lineNumber: 47,
+                        lineNumber: 84,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        className: "button-50",
+                        role: "button",
                         onClick: handleClick,
                         children: "LogIn"
                     }, void 0, false, {
                         fileName: "src/pages/auth/logIn/LogIn.jsx",
-                        lineNumber: 53,
+                        lineNumber: 97,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/pages/auth/logIn/LogIn.jsx",
-                lineNumber: 40,
+                lineNumber: 55,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/pages/auth/logIn/LogIn.jsx",
-        lineNumber: 38,
+        lineNumber: 37,
         columnNumber: 5
     }, undefined);
 };
@@ -34987,6 +35085,37 @@ $RefreshReg$(_c, "LogIn");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../../common/Navbar/navbar":"6O5to","../../../context/Context":"5uxAP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./LogIn.css":"j2cJi"}],"j2cJi":[function() {},{}]},["hPIHA","1xC6H","igcvL"], "igcvL", "parcelRequirea305")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../../common/Navbar/navbar":"6O5to","../../../context/Context":"5uxAP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./LogIn.css":"j2cJi"}],"j2cJi":[function() {},{}],"928kE":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$1595 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$1595.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+const Payment = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: "payment"
+    }, void 0, false, {
+        fileName: "src/pages/payment/payment.jsx",
+        lineNumber: 4,
+        columnNumber: 10
+    }, undefined);
+};
+_c = Payment;
+exports.default = Payment;
+var _c;
+$RefreshReg$(_c, "Payment");
+
+  $parcel$ReactRefreshHelpers$1595.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["hPIHA","1xC6H","igcvL"], "igcvL", "parcelRequirea305")
 
 //# sourceMappingURL=index.5baa4167.js.map

@@ -9,26 +9,25 @@ const Navbar = (props) => {
   const { userPoints, setUserPoints, isLoggedIn, login, logout } =
     useContext(PointsContext);
 
-    const navigate = useNavigate();
-    const [redirectToLogin, setRedirectToLogin] = useState(false);
+  const navigate = useNavigate();
+  const [redirectToLogin, setRedirectToLogin] = useState(false);
 
-    const handleLoginClick = () => {
-      // login(); // Call the login function from context
-      setRedirectToLogin(true);
-    };
+  const handleLoginClick = () => {
+    // login(); // Call the login function from context
+    setRedirectToLogin(true);
+  };
 
-    useEffect(() => {
-      if (redirectToLogin) {
-        navigate("/log-in");
-      }
-    }, [redirectToLogin, navigate]);
+  useEffect(() => {
+    if (redirectToLogin) {
+      navigate("/log-in");
+    }
+  }, [redirectToLogin, navigate]);
 
   const page = props.pageName;
 
   const customColor = (x) => {
     return { color: page === x ? "red" : "white" };
   };
-
 
   return (
     <div className="header-parent-container">
@@ -58,9 +57,13 @@ const Navbar = (props) => {
         {userPoints}
       </div>
       {isLoggedIn ? (
-        <button onClick={logout}>Logout</button>
+        <button className="button-50" role="button" onClick={logout}>
+          Logout
+        </button>
       ) : (
-        <button onClick={handleLoginClick}>Login</button>
+        <button className="button-50" role="button" onClick={handleLoginClick}>
+          Login
+        </button>
       )}
     </div>
   );
