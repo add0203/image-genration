@@ -1,19 +1,109 @@
+// import React from "react";
+// import Navbar from "../common/Navbar/navbar";
+// import "./Homepage.css";
+
+// const Homepage = (props) => {
+//   // const { userPoints, setUserPoints } = props;
+//   return (
+//     <div className="homepage-parent-container">
+//       <Navbar
+//         pageName="home"
+//         // userPoints={userPoints}
+//         // setUserPoints={setUserPoints}
+//       />
+//       HOME PAGE
+//     </div>
+//   );
+// };
+
+// export default Homepage;
+
 import React from "react";
+import React, { useState } from "react";
 import Navbar from "../common/Navbar/navbar";
 import "./Homepage.css";
+import React from "react";
 
-const Homepage = (props) => {
-  // const { userPoints, setUserPoints } = props;
+const Homepage = () => {
+  const redirectToGitHub = () => {
+    window.location.href = "https://github.com/add0203";
+  };
+
   return (
     <div className="homepage-parent-container">
-      <Navbar
-        pageName="home"
-        // userPoints={userPoints}
-        // setUserPoints={setUserPoints}
-      />
-      HOME PAGE
+      <Navbar pageName="home" />
+      <div style={styles.container}>
+        <h1 style={styles.heading}>Welcome to AI Image Genrator</h1>
+        <p style={styles.paragraph}>
+          Made During 2.5 weeks bootcamp by Programming Pathsala
+        </p>
+        <Button onClick={redirectToGitHub}>Go to GitHub</Button>
+      </div>
     </div>
   );
 };
+
+const styles = {
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "70vh",
+    textAlign: "center",
+    backgroundColor: "black",
+    padding: "50px",
+    borderRadius: "10px",
+    boxShadow: "0 0 20px rgba(0, 0, 0, 0.1)",
+    // fontFamily: "Arial, sans-serif",
+    color: "white",
+  },
+  heading: {
+    fontSize: "2.5rem",
+    marginBottom: "20px",
+    color: "white",
+  },
+  paragraph: {
+    fontSize: "1.2rem",
+    marginBottom: "40px",
+    color: "#ccc",
+  },
+};
+
+class Button extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hovering: false,
+    };
+  }
+
+  handleMouseEnter = () => {
+    this.setState({ hovering: true });
+  };
+
+  handleMouseLeave = () => {
+    this.setState({ hovering: false });
+  };
+
+  render() {
+    const { hovering } = this.state;
+    const buttonStyle = hovering
+      ? { ...styles.button, ...styles.buttonHover }
+      : styles.button;
+
+    return (
+      <button
+        className="button-50"
+        role="button"
+        onClick={this.props.onClick}
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}
+      >
+        {this.props.children}
+      </button>
+    );
+  }
+}
 
 export default Homepage;
