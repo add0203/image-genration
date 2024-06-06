@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import Homepage from "./src/pages/Homepage/Homepage";
 import ImageGenrator from "./src/pages/imageGenrator/ImageGenrator";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
 import History from "./src/pages/History/History";
 import HistoryInfoPage from "./src/pages/History/HistoryInfoPage";
 import PointsContext from "./src/context/Context";
@@ -15,13 +19,23 @@ const root = ReactDOM.createRoot(parent);
 const Heading = <h1>Hello React</h1>;
 
 const App = () => {
+   const [redirectToLogin, setRedirectToLogin] = useState(false);
   const [userPoints, setUserPoints] = useState(5);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    if (localStorage.getItem("authorization")) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+
   const login = () => {
+
     setIsLoggedIn(true);
   };
   const logout = () => {
-    setIsLoggedIn(!isLoggedIn);
+    localStorage.removeItem("authorization");
+    setIsLoggedIn(false);
   };
 
   const router = createBrowserRouter([
@@ -31,7 +45,8 @@ const App = () => {
     },
     {
       path: "/image-genrator",
-      element: <ImageGenrator />,
+      element: isLoggedIn ? <ImageGenrator /> : <Navigate to="/log-in" />,
+      // element: <ImageGenrator />,
     },
     {
       path: "/sign-up",
@@ -43,7 +58,8 @@ const App = () => {
     },
     {
       path: "/history",
-      element: <History />,
+      element: isLoggedIn ? <History /> : <Navigate to="/log-in" />,
+      // element: <History />,
     },
     {
       path: "/history/:historyId",
@@ -58,6 +74,7 @@ const App = () => {
         setUserPoints: setUserPoints,
         isLoggedIn: isLoggedIn,
         login,
+        logout,
       }}
     >
       <RouterProvider router={router} />

@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Navbar from "../../common/Navbar/navbar";
+import PointsContext from "../../../context/Context";
+import "./LogIn.css";
 
 const LogIn = () => {
+  const { login } = useContext(PointsContext);
   const [password, setPassword] = useState();
   const [email, setEmail] = useState();
-  const [response, setResponse] = useState(" ");
+
 
   const handleClick = async () => {
     if (!email && !password) {
@@ -21,12 +24,14 @@ const LogIn = () => {
         "Content-Type": "application/json",
       },
     });
-    // if (!res.ok) {
-
-    // }
     const data = await res.json();
+    if (res.status === 200) {
+      localStorage.setItem("authorization", data.data.token);
+      login();
+    }
+
     console.log(data);
-    setResponse(data);
+    // setResponse(data);
   };
 
   return (
@@ -45,7 +50,7 @@ const LogIn = () => {
             setPassword(e.target.value);
           }}
         />
-        <button onClick={handleClick}></button>
+        <button onClick={handleClick}>LogIn</button>
       </div>
     </div>
   );

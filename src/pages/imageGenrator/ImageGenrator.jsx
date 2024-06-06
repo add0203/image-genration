@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ImageGenrator.css";
 import Navbar from "../common/Navbar/navbar";
 import { useContext } from "react";
 import PointsContext from "../../context/Context";
 
 const ImageGenrator = () => {
-  // const { userPoints, setUserPoints } = props;
-  // const [display, setDisplay] = useState(false);
-  // const [valueEntered, setValueEntered] = useState("Genrating....");
+  // const [token, setToken] = useState("");
+
+  // useEffect(() => {
+  //   // Retrieve the token from localStorage when the component mounts
+  //   const storedToken = localStorage.getItem("authorization");
+  //   setToken(storedToken);
+  // }, []);
 
   const [searchText, setSearchText] = useState();
   const [imageSrc, setImgSrc] = useState("");
@@ -18,6 +22,12 @@ const ImageGenrator = () => {
 
   const { userPoints, setUserPoints } = useContext(PointsContext);
   const handleClick = async () => {
+    // if (!token) {
+    //   console.error("No token found in localStorage");
+    //   return;
+    // }
+    console.log(localStorage.getItem("authorization"));
+
     // setUserPoints(userPoints - 1);
     try {
       const res = await fetch(`${process.env.BACKEND_URL}/api/v1/image`, {
@@ -27,6 +37,7 @@ const ImageGenrator = () => {
         }),
         headers: {
           "Content-Type": "application/json",
+          "authorization": "Bearer " + localStorage.getItem("authorization"),
         },
       });
       const data = await res.json();

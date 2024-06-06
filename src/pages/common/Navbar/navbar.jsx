@@ -2,19 +2,33 @@ import { useContext } from "react";
 import React, { useEffect, useState } from "react";
 import "./navbar.css";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PointsContext from "../../../context/Context.jsx";
 
 const Navbar = (props) => {
-  const { userPoints, setUserPoints } = useContext(PointsContext);
+  const { userPoints, setUserPoints, isLoggedIn, login, logout } =
+    useContext(PointsContext);
 
-  // console.log(useContext(PointsContext));
+    const navigate = useNavigate();
+    const [redirectToLogin, setRedirectToLogin] = useState(false);
+
+    const handleLoginClick = () => {
+      // login(); // Call the login function from context
+      setRedirectToLogin(true);
+    };
+
+    useEffect(() => {
+      if (redirectToLogin) {
+        navigate("/log-in");
+      }
+    }, [redirectToLogin, navigate]);
+
   const page = props.pageName;
 
   const customColor = (x) => {
     return { color: page === x ? "red" : "white" };
   };
-  // console.log(userPoints);
+
 
   return (
     <div className="header-parent-container">
@@ -33,13 +47,21 @@ const Navbar = (props) => {
         <Link to="/sign-up" style={customColor("signUp")}>
           SingUp
         </Link>
-        <Link to="/log-in" style={customColor("signIn")}>
+        <Link to="/log-in" style={customColor("logIn")}>
           LogIn
         </Link>
       </div>
-      <div className="right">
-        <div className="circle">{userPoints}</div>
+      <div
+        className="right"
+        style={{ padding: "4px", color: "brown", fontWeight: "bold" }}
+      >
+        {userPoints}
       </div>
+      {isLoggedIn ? (
+        <button onClick={logout}>Logout</button>
+      ) : (
+        <button onClick={handleLoginClick}>Login</button>
+      )}
     </div>
   );
 };
