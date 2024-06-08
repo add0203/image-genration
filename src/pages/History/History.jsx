@@ -86,7 +86,7 @@ const History = (props) => {
       </div>
       {
         // textValue &&
-        data.map((item) => (
+        data.reverse().map((item) => (
           // <div key={item._id}>
           <div key={item._id} style={cardStyle}>
             <img src={item.imageUrl} alt={item.searchText} style={imageStyle} />

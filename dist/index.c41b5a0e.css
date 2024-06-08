@@ -160,6 +160,35 @@
   }
 }
 
+.button-54 {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  box-shadow: 1px 1px 0px 0px black, Adjusted shadow size 2px 2px 0px 0px #fff, 3px 3px 0px 0px #fff;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+  background-color: #fff;
+  border: 2px solid #fff;
+  padding: .15em .3em;
+  font-size: 5px;
+  text-decoration: none;
+  position: relative;
+}
+
+.button-54:active {
+  top: 3px;
+  left: 3px;
+  box-shadow: 0 0;
+}
+
+@media (width >= 768px) {
+  .button-54 {
+    padding: .15em .5em;
+  }
+}
+
 .log-in-container {
   & .log-in-box {
     justify-content: center;

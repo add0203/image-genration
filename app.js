@@ -5,7 +5,8 @@ import ImageGenrator from "./src/pages/imageGenrator/ImageGenrator";
 import {
   createBrowserRouter,
   RouterProvider,
-  Navigate,
+  // useNavigate,
+  Link,
 } from "react-router-dom";
 import History from "./src/pages/History/History";
 import HistoryInfoPage from "./src/pages/History/HistoryInfoPage";
@@ -15,6 +16,7 @@ import LogIn from "./src/pages/auth/logIn/LogIn";
 
 const parent = document.getElementById("root");
 const root = ReactDOM.createRoot(parent);
+// const navigate = useNavigate();
 
 // const Heading = <h1>Hello React</h1>;
 
@@ -31,9 +33,11 @@ const App = () => {
 
   const login = () => {
     setIsLoggedIn(true);
+    // navigate("/");
   };
   const logout = () => {
     localStorage.removeItem("authorization");
+    localStorage.removeItem("userPoints");
     setIsLoggedIn(false);
   };
 

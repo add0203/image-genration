@@ -2975,6 +2975,7 @@ var _logInDefault = parcelHelpers.interopDefault(_logIn);
 var _s = $RefreshSig$();
 const parent = document.getElementById("root");
 const root = (0, _clientDefault.default).createRoot(parent);
+// const navigate = useNavigate();
 // const Heading = <h1>Hello React</h1>;
 const App = ()=>{
     _s();
@@ -2986,9 +2987,11 @@ const App = ()=>{
     });
     const login = ()=>{
         setIsLoggedIn(true);
+    // navigate("/");
     };
     const logout = ()=>{
         localStorage.removeItem("authorization");
+        localStorage.removeItem("userPoints");
         setIsLoggedIn(false);
     };
     const router = (0, _reactRouterDom.createBrowserRouter)([
@@ -2996,7 +2999,7 @@ const App = ()=>{
             path: "/",
             element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _homepageDefault.default), {}, void 0, false, {
                 fileName: "app.js",
-                lineNumber: 43,
+                lineNumber: 47,
                 columnNumber: 16
             }, undefined)
         },
@@ -3004,13 +3007,13 @@ const App = ()=>{
             path: "/image-genrator",
             element: isLoggedIn ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _imageGenratorDefault.default), {}, void 0, false, {
                 fileName: "app.js",
-                lineNumber: 47,
+                lineNumber: 51,
                 columnNumber: 29
-            }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Navigate), {
+            }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Navigate, {
                 to: "/log-in"
             }, void 0, false, {
                 fileName: "app.js",
-                lineNumber: 47,
+                lineNumber: 51,
                 columnNumber: 49
             }, undefined)
         },
@@ -3018,7 +3021,7 @@ const App = ()=>{
             path: "/sign-up",
             element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signUpDefault.default), {}, void 0, false, {
                 fileName: "app.js",
-                lineNumber: 51,
+                lineNumber: 55,
                 columnNumber: 16
             }, undefined)
         },
@@ -3026,7 +3029,7 @@ const App = ()=>{
             path: "/log-in",
             element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _logInDefault.default), {}, void 0, false, {
                 fileName: "app.js",
-                lineNumber: 55,
+                lineNumber: 59,
                 columnNumber: 16
             }, undefined)
         },
@@ -3034,13 +3037,13 @@ const App = ()=>{
             path: "/history",
             element: isLoggedIn ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _historyDefault.default), {}, void 0, false, {
                 fileName: "app.js",
-                lineNumber: 59,
+                lineNumber: 63,
                 columnNumber: 29
-            }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Navigate), {
+            }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Navigate, {
                 to: "/log-in"
             }, void 0, false, {
                 fileName: "app.js",
-                lineNumber: 59,
+                lineNumber: 63,
                 columnNumber: 43
             }, undefined)
         },
@@ -3048,7 +3051,7 @@ const App = ()=>{
             path: "/history/:historyId",
             element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _historyInfoPageDefault.default), {}, void 0, false, {
                 fileName: "app.js",
-                lineNumber: 64,
+                lineNumber: 68,
                 columnNumber: 16
             }, undefined)
         }
@@ -3065,12 +3068,12 @@ const App = ()=>{
             router: router
         }, void 0, false, {
             fileName: "app.js",
-            lineNumber: 78,
+            lineNumber: 82,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "app.js",
-        lineNumber: 69,
+        lineNumber: 73,
         columnNumber: 5
     }, undefined);
 };
@@ -3078,7 +3081,7 @@ _s(App, "H2oSYyZOvlch4pqJqDxIaPAjXAs=");
 _c = App;
 root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
     fileName: "app.js",
-    lineNumber: 83,
+    lineNumber: 87,
     columnNumber: 13
 }, undefined));
 var _c;
@@ -34776,7 +34779,7 @@ const History = (props)=>{
                 columnNumber: 7
             }, undefined),
             // textValue &&
-            data.map((item)=>// <div key={item._id}>
+            data.reverse().map((item)=>// <div key={item._id}>
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                     style: cardStyle,
                     children: [
@@ -34904,6 +34907,81 @@ var prevRefreshSig = window.$RefreshSig$;
 $parcel$ReactRefreshHelpers$53d7.prelude(module);
 
 try {
+// import React, { useState } from "react";
+// import Navbar from "../../common/Navbar/navbar";
+// import "./SignUp.css";
+// const SignUp = () => {
+//   const [password, setPassword] = useState();
+//   const [email, setEmail] = useState();
+//   const [responseMessage, setResponseMessage] = useState("");
+//   const handleClick = async () => {
+//     console.log(password, email);
+//     if (!email && !password) {
+//       return;
+//     }
+//     try {
+//       const res = await fetch(`${process.env.BACKEND_URL}/api/v1/auth/signUp`, {
+//         // http://localhost:5001/api/v1/auth/signup
+//         method: "POST",
+//         body: JSON.stringify({
+//           email,
+//           password,
+//         }),
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//       });
+//       const data = await res.json();
+//       if (res.ok) {
+//         setResponseMessage("User created successfully!");
+//       } else {
+//         setResponseMessage(data.message || "An error occurred during sign up.");
+//       }
+//     } catch (error) {
+//       setResponseMessage("An error occurred: " + error.message);
+//     }
+//     //display the return res from the backend with status
+//     console.log(data);
+//   };
+//   return (
+//     <div className="sign-up-container">
+//       <Navbar pageName="signUp" />
+//       <div className="sign-up-box">
+//         <div className="inputbox">
+//           <input
+//             onChange={(e) => {
+//               setEmail(e.target.value);
+//             }}
+//             placeholder="Email"
+//             required="required"
+//             type="text"
+//           />
+//           <i></i>
+//         </div>
+//         <div className="inputbox">
+//           <input
+//             onChange={(e) => {
+//               setPassword(e.target.value);
+//             }}
+//             placeholder="Password"
+//             required="required"
+//             type="text"
+//           />
+//           <i></i>
+//         </div>
+//         <button className="button-50" role="button" onClick={handleClick}>
+//           SignUp
+//         </button>
+//       </div>
+//       {responseMessage && (
+//         <div style={{ color: "white", marginTop: "10px" }}>
+//           {responseMessage}
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+// export default SignUp;
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
@@ -34915,25 +34993,41 @@ var _signUpCss = require("./SignUp.css");
 var _s = $RefreshSig$();
 const SignUp = ()=>{
     _s();
-    const [password, setPassword] = (0, _react.useState)();
-    const [email, setEmail] = (0, _react.useState)();
+    const [password, setPassword] = (0, _react.useState)("");
+    const [email, setEmail] = (0, _react.useState)("");
+    const [responseMessage, setResponseMessage] = (0, _react.useState)("");
+    const [isError, setIsError] = (0, _react.useState)(false);
+    const [showPassword, setShowPassword] = (0, _react.useState)(false);
     const handleClick = async ()=>{
         console.log(password, email);
-        if (!email && !password) return;
-        const res = await fetch(`${"http://localhost:5001"}/api/v1/auth/signUp`, {
-            // http://localhost:5001/api/v1/auth/signup
-            method: "POST",
-            body: JSON.stringify({
-                email,
-                password
-            }),
-            headers: {
-                "Content-Type": "application/json"
+        if (!email || !password) {
+            setResponseMessage("Email and password are required.");
+            setIsError(true);
+            return;
+        }
+        try {
+            const res = await fetch(`${"http://localhost:5001"}/api/v1/auth/signUp`, {
+                method: "POST",
+                body: JSON.stringify({
+                    email,
+                    password
+                }),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+            const data = await res.json();
+            if (res.ok) {
+                setResponseMessage(data.message);
+                setIsError(false);
+            } else {
+                setResponseMessage(data.message || "An error occurred during sign up.");
+                setIsError(true);
             }
-        });
-        const data = await res.json();
-        //display the return res from the backend with status
-        console.log(data);
+        } catch (error) {
+            setResponseMessage("An error occurred: " + error.message);
+            setIsError(true);
+        }
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "sign-up-container",
@@ -34942,14 +35036,14 @@ const SignUp = ()=>{
                 pageName: "signUp"
             }, void 0, false, {
                 fileName: "src/pages/auth/signUp/SignUp.jsx",
-                lineNumber: 31,
+                lineNumber: 130,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "sign-up-box",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        class: "inputbox",
+                        className: "inputbox",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                                 onChange: (e)=>{
@@ -34960,22 +35054,22 @@ const SignUp = ()=>{
                                 type: "text"
                             }, void 0, false, {
                                 fileName: "src/pages/auth/signUp/SignUp.jsx",
-                                lineNumber: 34,
+                                lineNumber: 133,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {}, void 0, false, {
                                 fileName: "src/pages/auth/signUp/SignUp.jsx",
-                                lineNumber: 43,
+                                lineNumber: 141,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/pages/auth/signUp/SignUp.jsx",
-                        lineNumber: 33,
+                        lineNumber: 132,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        class: "inputbox",
+                        className: "inputbox",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                                 onChange: (e)=>{
@@ -34983,21 +35077,30 @@ const SignUp = ()=>{
                                 },
                                 placeholder: "Password",
                                 required: "required",
-                                type: "text"
+                                type: showPassword ? "text" : "password"
                             }, void 0, false, {
                                 fileName: "src/pages/auth/signUp/SignUp.jsx",
-                                lineNumber: 46,
+                                lineNumber: 144,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {}, void 0, false, {
                                 fileName: "src/pages/auth/signUp/SignUp.jsx",
-                                lineNumber: 55,
+                                lineNumber: 152,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/pages/auth/signUp/SignUp.jsx",
-                        lineNumber: 45,
+                        lineNumber: 143,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        type: "button",
+                        onClick: ()=>setShowPassword((prevState)=>!prevState),
+                        children: showPassword ? "Hide" : "Show"
+                    }, void 0, false, {
+                        fileName: "src/pages/auth/signUp/SignUp.jsx",
+                        lineNumber: 154,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35007,23 +35110,34 @@ const SignUp = ()=>{
                         children: "SignUp"
                     }, void 0, false, {
                         fileName: "src/pages/auth/signUp/SignUp.jsx",
-                        lineNumber: 58,
+                        lineNumber: 160,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/pages/auth/signUp/SignUp.jsx",
-                lineNumber: 32,
+                lineNumber: 131,
                 columnNumber: 7
+            }, undefined),
+            responseMessage && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    color: isError ? "red" : "white",
+                    marginTop: "10px"
+                },
+                children: responseMessage
+            }, void 0, false, {
+                fileName: "src/pages/auth/signUp/SignUp.jsx",
+                lineNumber: 165,
+                columnNumber: 9
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/pages/auth/signUp/SignUp.jsx",
-        lineNumber: 30,
+        lineNumber: 129,
         columnNumber: 5
     }, undefined);
 };
-_s(SignUp, "VnDxZR9Cs4IsIrJcVPEYywqkB+k=");
+_s(SignUp, "crFXBH0zY4uISxeVZ1y7krRxUS4=");
 _c = SignUp;
 exports.default = SignUp;
 var _c;
@@ -35041,6 +35155,95 @@ var prevRefreshSig = window.$RefreshSig$;
 $parcel$ReactRefreshHelpers$1c2a.prelude(module);
 
 try {
+// import React, { useContext, useState } from "react";
+// import Navbar from "../../common/Navbar/navbar";
+// import PointsContext from "../../../context/Context";
+// import "./LogIn.css";
+// const LogIn = () => {
+//   const { login, userPoints } = useContext(PointsContext);
+//   const [password, setPassword] = useState();
+//   const [email, setEmail] = useState();
+//   const [isError, setIsError] = useState(false);
+//   const handleClick = async () => {
+//     if (!email && !password) {
+//       return;
+//     }
+//     try {
+//       const res = await fetch(`${process.env.BACKEND_URL}/api/v1/auth/logIn`, {
+//         method: "POST",
+//         body: JSON.stringify({
+//           email,
+//           password,
+//         }),
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//       });
+//       const data = await res.json();
+//       if (res.ok) {
+//         setResponseMessage(data.message);
+//         setIsError(false);
+//       } else {
+//         setResponseMessage(data.message || "An error occurred during sign up.");
+//         setIsError(true);
+//       }
+//       if (res.status === 200) {
+//         localStorage.setItem("authorization", data.data.token);
+//         localStorage.setItem("userPoints", userPoints);
+//         login();
+//       }
+//     } catch (error) {
+//       setResponseMessage("An error occurred: " + error.message);
+//       setIsError(true);
+//     }
+//     // console.log(data);
+//     // setResponse(data);
+//   };
+//   return (
+//     <div className="log-in-container">
+//       <Navbar pageName="logIn" />
+//       <div className="log-in-box">
+//         <div class="inputbox">
+//           <input
+//             onChange={(e) => {
+//               setEmail(e.target.value);
+//             }}
+//             required="required"
+//             type="text"
+//             placeholder="Email"
+//           />
+//           <i></i>
+//         </div>
+//         <div class="inputbox">
+//           <input
+//             onChange={(e) => {
+//               setPassword(e.target.value);
+//             }}
+//             placeholder="Password"
+//             required="required"
+//             type="text"
+//           />
+//           <i></i>
+//         </div>
+//         <button className="button-50" role="button" onClick={handleClick}>
+//           LogIn
+//         </button>
+//       </div>
+//       {/*  */}
+//       {responseMessage && (
+//         <div
+//           style={{
+//             color: isError ? "red" : "white",
+//             marginTop: "10px",
+//           }}
+//         >
+//           {responseMessage}
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+// export default LogIn;
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
@@ -35055,28 +35258,43 @@ var _s = $RefreshSig$();
 const LogIn = ()=>{
     _s();
     const { login, userPoints } = (0, _react.useContext)((0, _contextDefault.default));
-    const [password, setPassword] = (0, _react.useState)();
-    const [email, setEmail] = (0, _react.useState)();
+    const [password, setPassword] = (0, _react.useState)("");
+    const [email, setEmail] = (0, _react.useState)("");
+    const [responseMessage, setResponseMessage] = (0, _react.useState)("");
+    const [isError, setIsError] = (0, _react.useState)(false);
+    const [showPassword, setShowPassword] = (0, _react.useState)(false);
     const handleClick = async ()=>{
-        if (!email && !password) return;
-        const res = await fetch(`${"http://localhost:5001"}/api/v1/auth/logIn`, {
-            method: "POST",
-            body: JSON.stringify({
-                email,
-                password
-            }),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
-        const data = await res.json();
-        if (res.status === 200) {
-            localStorage.setItem("authorization", data.data.token);
-            localStorage.setItem("userPoints", userPoints);
-            login();
+        if (!email || !password) {
+            setResponseMessage("Email and password are required.");
+            setIsError(true);
+            return;
         }
-    // console.log(data);
-    // setResponse(data);
+        try {
+            const res = await fetch(`${"http://localhost:5001"}/api/v1/auth/logIn`, {
+                method: "POST",
+                body: JSON.stringify({
+                    email,
+                    password
+                }),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+            const data = await res.json();
+            if (res.ok) {
+                setResponseMessage("User logged in successfully!");
+                setIsError(false);
+                localStorage.setItem("authorization", data.data.token);
+                localStorage.setItem("userPoints", userPoints);
+                login();
+            } else {
+                setResponseMessage(data.message || "An error occurred during login.");
+                setIsError(true);
+            }
+        } catch (error) {
+            setResponseMessage("An error occurred: " + error.message);
+            setIsError(true);
+        }
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "log-in-container",
@@ -35085,14 +35303,14 @@ const LogIn = ()=>{
                 pageName: "logIn"
             }, void 0, false, {
                 fileName: "src/pages/auth/logIn/LogIn.jsx",
-                lineNumber: 39,
+                lineNumber: 150,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "log-in-box",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        class: "inputbox",
+                        className: "inputbox",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                                 onChange: (e)=>{
@@ -35103,22 +35321,22 @@ const LogIn = ()=>{
                                 placeholder: "Email"
                             }, void 0, false, {
                                 fileName: "src/pages/auth/logIn/LogIn.jsx",
-                                lineNumber: 43,
+                                lineNumber: 154,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {}, void 0, false, {
                                 fileName: "src/pages/auth/logIn/LogIn.jsx",
-                                lineNumber: 52,
+                                lineNumber: 163,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/pages/auth/logIn/LogIn.jsx",
-                        lineNumber: 42,
+                        lineNumber: 153,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        class: "inputbox",
+                        className: "inputbox",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                                 onChange: (e)=>{
@@ -35126,21 +35344,31 @@ const LogIn = ()=>{
                                 },
                                 placeholder: "Password",
                                 required: "required",
-                                type: "text"
+                                // type="password"
+                                type: showPassword ? "text" : "password"
                             }, void 0, false, {
                                 fileName: "src/pages/auth/logIn/LogIn.jsx",
-                                lineNumber: 56,
+                                lineNumber: 167,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {}, void 0, false, {
                                 fileName: "src/pages/auth/logIn/LogIn.jsx",
-                                lineNumber: 65,
+                                lineNumber: 177,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/pages/auth/logIn/LogIn.jsx",
-                        lineNumber: 55,
+                        lineNumber: 166,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        type: "button",
+                        onClick: ()=>setShowPassword((prevState)=>!prevState),
+                        children: showPassword ? "Hide" : "Show"
+                    }, void 0, false, {
+                        fileName: "src/pages/auth/logIn/LogIn.jsx",
+                        lineNumber: 180,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35150,23 +35378,34 @@ const LogIn = ()=>{
                         children: "LogIn"
                     }, void 0, false, {
                         fileName: "src/pages/auth/logIn/LogIn.jsx",
-                        lineNumber: 68,
+                        lineNumber: 186,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/pages/auth/logIn/LogIn.jsx",
-                lineNumber: 41,
+                lineNumber: 152,
                 columnNumber: 7
+            }, undefined),
+            responseMessage && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                style: {
+                    color: isError ? "red" : "white",
+                    marginTop: "10px"
+                },
+                children: responseMessage
+            }, void 0, false, {
+                fileName: "src/pages/auth/logIn/LogIn.jsx",
+                lineNumber: 192,
+                columnNumber: 9
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/pages/auth/logIn/LogIn.jsx",
-        lineNumber: 38,
+        lineNumber: 149,
         columnNumber: 5
     }, undefined);
 };
-_s(LogIn, "c9YWg75VYz/pYhUlNv81PaLeTE8=");
+_s(LogIn, "pW9mJ1j5iza5z76rKtvUnlSPIjc=");
 _c = LogIn;
 exports.default = LogIn;
 var _c;
