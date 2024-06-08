@@ -22,6 +22,7 @@ const SignUp = () => {
       },
     });
     const data = await res.json();
+
     //display the return res from the backend with status
     console.log(data);
   };
@@ -53,25 +54,12 @@ const SignUp = () => {
 
           <i></i>
         </div>
-        {/* <input
-          type="text"
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-          placeholder="Email"
-        /> */}
-        {/* <input
-          type="text"
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-          placeholder="Password"
-        /> */}
 
         <button className="button-50" role="button" onClick={handleClick}>
           SignUp
         </button>
       </div>
+      {/* {data.ok && <div>user created</div>} */}
     </div>
   );
 };

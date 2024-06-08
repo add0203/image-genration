@@ -34736,8 +34736,8 @@ const History = (props)=>{
         textAlign: "center"
     };
     const imageStyle = {
-        width: "100px",
-        height: "100px",
+        width: "200px",
+        height: "200px",
         objectFit: "cover",
         borderRadius: "8px"
     };
@@ -34796,7 +34796,7 @@ const History = (props)=>{
                             lineNumber: 93,
                             columnNumber: 13
                         }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                             children: item.imageUrl
                         }, void 0, false, {
                             fileName: "src/pages/History/History.jsx",
@@ -34942,7 +34942,7 @@ const SignUp = ()=>{
                 pageName: "signUp"
             }, void 0, false, {
                 fileName: "src/pages/auth/signUp/SignUp.jsx",
-                lineNumber: 30,
+                lineNumber: 31,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34960,18 +34960,18 @@ const SignUp = ()=>{
                                 type: "text"
                             }, void 0, false, {
                                 fileName: "src/pages/auth/signUp/SignUp.jsx",
-                                lineNumber: 33,
+                                lineNumber: 34,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {}, void 0, false, {
                                 fileName: "src/pages/auth/signUp/SignUp.jsx",
-                                lineNumber: 42,
+                                lineNumber: 43,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/pages/auth/signUp/SignUp.jsx",
-                        lineNumber: 32,
+                        lineNumber: 33,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34986,18 +34986,18 @@ const SignUp = ()=>{
                                 type: "text"
                             }, void 0, false, {
                                 fileName: "src/pages/auth/signUp/SignUp.jsx",
-                                lineNumber: 45,
+                                lineNumber: 46,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {}, void 0, false, {
                                 fileName: "src/pages/auth/signUp/SignUp.jsx",
-                                lineNumber: 54,
+                                lineNumber: 55,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/pages/auth/signUp/SignUp.jsx",
-                        lineNumber: 44,
+                        lineNumber: 45,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35007,19 +35007,19 @@ const SignUp = ()=>{
                         children: "SignUp"
                     }, void 0, false, {
                         fileName: "src/pages/auth/signUp/SignUp.jsx",
-                        lineNumber: 71,
+                        lineNumber: 58,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/pages/auth/signUp/SignUp.jsx",
-                lineNumber: 31,
+                lineNumber: 32,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/pages/auth/signUp/SignUp.jsx",
-        lineNumber: 29,
+        lineNumber: 30,
         columnNumber: 5
     }, undefined);
 };

@@ -63,8 +63,8 @@ const History = (props) => {
   };
 
   const imageStyle = {
-    width: "100px",
-    height: "100px",
+    width: "200px",
+    height: "200px",
     objectFit: "cover",
     borderRadius: "8px",
   };
@@ -91,7 +91,7 @@ const History = (props) => {
           <div key={item._id} style={cardStyle}>
             <img src={item.imageUrl} alt={item.searchText} style={imageStyle} />
             <h4>{item.searchText}</h4>
-            <span>{item.imageUrl}</span>
+            <p>{item.imageUrl}</p>
 
             {/* <Link to={`/history/${item.imageUrl}`}>More..</Link> */}
             <Link to={`${item.imageUrl}`}>open...</Link>
