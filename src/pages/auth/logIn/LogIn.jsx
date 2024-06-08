@@ -51,7 +51,7 @@
 //       <Navbar pageName="logIn" />
 
 //       <div className="log-in-box">
-//         <div class="inputbox">
+//         <div className="inputbox">
 //           <input
 //             onChange={(e) => {
 //               setEmail(e.target.value);
@@ -64,7 +64,7 @@
 //           <i></i>
 //         </div>
 
-//         <div class="inputbox">
+//         <div className="inputbox">
 //           <input
 //             onChange={(e) => {
 //               setPassword(e.target.value);

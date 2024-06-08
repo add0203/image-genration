@@ -34609,7 +34609,7 @@ const ImageGenrator = ()=>{
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        class: "inputbox",
+                        className: "inputbox",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                                 onChange: (e)=>{
@@ -35019,10 +35019,10 @@ const SignUp = ()=>{
             });
             const data = await res.json();
             if (res.ok) {
-                setResponseMessage(data.message);
+                setResponseMessage(data.user.message);
                 setIsError(false);
             } else {
-                setResponseMessage(data.message || "An error occurred during sign up.");
+                setResponseMessage(data.user.message || "An error occurred during sign up.");
                 setIsError(true);
             }
         } catch (error) {
@@ -35037,7 +35037,7 @@ const SignUp = ()=>{
                 pageName: "signUp"
             }, void 0, false, {
                 fileName: "src/pages/auth/signUp/SignUp.jsx",
-                lineNumber: 130,
+                lineNumber: 132,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35055,18 +35055,18 @@ const SignUp = ()=>{
                                 type: "text"
                             }, void 0, false, {
                                 fileName: "src/pages/auth/signUp/SignUp.jsx",
-                                lineNumber: 133,
+                                lineNumber: 135,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {}, void 0, false, {
                                 fileName: "src/pages/auth/signUp/SignUp.jsx",
-                                lineNumber: 141,
+                                lineNumber: 143,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/pages/auth/signUp/SignUp.jsx",
-                        lineNumber: 132,
+                        lineNumber: 134,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35081,18 +35081,18 @@ const SignUp = ()=>{
                                 type: showPassword ? "text" : "password"
                             }, void 0, false, {
                                 fileName: "src/pages/auth/signUp/SignUp.jsx",
-                                lineNumber: 144,
+                                lineNumber: 146,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {}, void 0, false, {
                                 fileName: "src/pages/auth/signUp/SignUp.jsx",
-                                lineNumber: 152,
+                                lineNumber: 154,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/pages/auth/signUp/SignUp.jsx",
-                        lineNumber: 143,
+                        lineNumber: 145,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35101,7 +35101,7 @@ const SignUp = ()=>{
                         children: showPassword ? "Hide" : "Show"
                     }, void 0, false, {
                         fileName: "src/pages/auth/signUp/SignUp.jsx",
-                        lineNumber: 154,
+                        lineNumber: 156,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35111,13 +35111,13 @@ const SignUp = ()=>{
                         children: "SignUp"
                     }, void 0, false, {
                         fileName: "src/pages/auth/signUp/SignUp.jsx",
-                        lineNumber: 160,
+                        lineNumber: 162,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/pages/auth/signUp/SignUp.jsx",
-                lineNumber: 131,
+                lineNumber: 133,
                 columnNumber: 7
             }, undefined),
             responseMessage && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35128,13 +35128,13 @@ const SignUp = ()=>{
                 children: responseMessage
             }, void 0, false, {
                 fileName: "src/pages/auth/signUp/SignUp.jsx",
-                lineNumber: 165,
+                lineNumber: 167,
                 columnNumber: 9
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/pages/auth/signUp/SignUp.jsx",
-        lineNumber: 129,
+        lineNumber: 131,
         columnNumber: 5
     }, undefined);
 };
@@ -35204,7 +35204,7 @@ try {
 //     <div className="log-in-container">
 //       <Navbar pageName="logIn" />
 //       <div className="log-in-box">
-//         <div class="inputbox">
+//         <div className="inputbox">
 //           <input
 //             onChange={(e) => {
 //               setEmail(e.target.value);
@@ -35215,7 +35215,7 @@ try {
 //           />
 //           <i></i>
 //         </div>
-//         <div class="inputbox">
+//         <div className="inputbox">
 //           <input
 //             onChange={(e) => {
 //               setPassword(e.target.value);

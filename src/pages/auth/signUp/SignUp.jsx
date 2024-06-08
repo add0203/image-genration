@@ -113,10 +113,12 @@ const SignUp = () => {
       const data = await res.json();
 
       if (res.ok) {
-        setResponseMessage(data.message);
+        setResponseMessage(data.user.message);
         setIsError(false);
       } else {
-        setResponseMessage(data.message || "An error occurred during sign up.");
+        setResponseMessage(
+          data.user.message || "An error occurred during sign up."
+        );
         setIsError(true);
       }
     } catch (error) {

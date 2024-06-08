@@ -57,7 +57,7 @@ const ImageGenrator = () => {
 
       <div className="image-gen-parent-container">
         <img src={imageSrc} />
-        <div class="inputbox">
+        <div className="inputbox">
           <input
             onChange={(e) => {
               func(e);
