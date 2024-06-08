@@ -35,6 +35,12 @@ const ImageGenrator = () => {
           },
         }
       );
+      if (!res.ok) {
+        // Handle non-200 responses
+        const errorText = await res.text();
+        console.error("Error fetching data:", errorText);
+        return;
+      }
       const data = await res.json();
       if (data?.status === 200) {
         setImgSrc(data.data.imageUrl);

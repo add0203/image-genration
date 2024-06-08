@@ -28,6 +28,7 @@ const History = (props) => {
           },
         }
       );
+
       const obj = await res.json();
       let data = obj.data; //static variable gets updated
       setData(data);
@@ -83,23 +84,21 @@ const History = (props) => {
         {/* <span>Username</span> */}
         <i></i>
       </div>
-      {textValue &&
+      {
+        // textValue &&
         data.map((item) => (
-          <div key={item._id}>
-            <div key={item._id} style={cardStyle}>
-              <img
-                src={item.imageUrl}
-                alt={item.searchText}
-                style={imageStyle}
-              />
-              <h4>{item.searchText}</h4>
-              <p>{item.imageUrl}</p>
+          // <div key={item._id}>
+          <div key={item._id} style={cardStyle}>
+            <img src={item.imageUrl} alt={item.searchText} style={imageStyle} />
+            <h4>{item.searchText}</h4>
+            <span>{item.imageUrl}</span>
 
-              {/* <Link to={`/history/${item.imageUrl}`}>More..</Link> */}
-              <Link to={`${item.imageUrl}`}>open...</Link>
-            </div>
+            {/* <Link to={`/history/${item.imageUrl}`}>More..</Link> */}
+            <Link to={`${item.imageUrl}`}>open...</Link>
+            {/* </div> */}
           </div>
-        ))}
+        ))
+      }
     </div>
   );
 };

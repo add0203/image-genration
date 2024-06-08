@@ -34573,6 +34573,12 @@ const ImageGenrator = ()=>{
                     authorization: "Bearer " + localStorage.getItem("authorization")
                 }
             });
+            if (!res.ok) {
+                // Handle non-200 responses
+                const errorText = await res.text();
+                console.error("Error fetching data:", errorText);
+                return;
+            }
             const data = await res.json();
             if (data?.status === 200) setImgSrc(data.data.imageUrl);
         } catch (error) {
@@ -34585,7 +34591,7 @@ const ImageGenrator = ()=>{
                 pageName: "imageGenerator"
             }, void 0, false, {
                 fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                lineNumber: 49,
+                lineNumber: 55,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34595,7 +34601,7 @@ const ImageGenrator = ()=>{
                         src: imageSrc
                     }, void 0, false, {
                         fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                        lineNumber: 52,
+                        lineNumber: 58,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34610,18 +34616,18 @@ const ImageGenrator = ()=>{
                                 type: "text"
                             }, void 0, false, {
                                 fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                                lineNumber: 54,
+                                lineNumber: 60,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {}, void 0, false, {
                                 fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                                lineNumber: 63,
+                                lineNumber: 69,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                        lineNumber: 53,
+                        lineNumber: 59,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -34634,19 +34640,19 @@ const ImageGenrator = ()=>{
                         children: "Generate"
                     }, void 0, false, {
                         fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                        lineNumber: 67,
+                        lineNumber: 73,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                lineNumber: 51,
+                lineNumber: 57,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-        lineNumber: 48,
+        lineNumber: 54,
         columnNumber: 5
     }, undefined);
 };
@@ -34743,7 +34749,7 @@ const History = (props)=>{
                 setUserPoints: setUserPoints
             }, void 0, false, {
                 fileName: "src/pages/History/History.jsx",
-                lineNumber: 72,
+                lineNumber: 73,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34755,70 +34761,66 @@ const History = (props)=>{
                         type: "text"
                     }, void 0, false, {
                         fileName: "src/pages/History/History.jsx",
-                        lineNumber: 78,
+                        lineNumber: 79,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {}, void 0, false, {
                         fileName: "src/pages/History/History.jsx",
-                        lineNumber: 84,
+                        lineNumber: 85,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/pages/History/History.jsx",
-                lineNumber: 77,
+                lineNumber: 78,
                 columnNumber: 7
             }, undefined),
-            textValue && data.map((item)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        style: cardStyle,
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                src: item.imageUrl,
-                                alt: item.searchText,
-                                style: imageStyle
-                            }, void 0, false, {
-                                fileName: "src/pages/History/History.jsx",
-                                lineNumber: 90,
-                                columnNumber: 15
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
-                                children: item.searchText
-                            }, void 0, false, {
-                                fileName: "src/pages/History/History.jsx",
-                                lineNumber: 95,
-                                columnNumber: 15
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                children: item.imageUrl
-                            }, void 0, false, {
-                                fileName: "src/pages/History/History.jsx",
-                                lineNumber: 96,
-                                columnNumber: 15
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                to: `${item.imageUrl}`,
-                                children: "open..."
-                            }, void 0, false, {
-                                fileName: "src/pages/History/History.jsx",
-                                lineNumber: 99,
-                                columnNumber: 15
-                            }, undefined)
-                        ]
-                    }, item._id, true, {
-                        fileName: "src/pages/History/History.jsx",
-                        lineNumber: 89,
-                        columnNumber: 13
-                    }, undefined)
-                }, item._id, false, {
+            // textValue &&
+            data.map((item)=>// <div key={item._id}>
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    style: cardStyle,
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                            src: item.imageUrl,
+                            alt: item.searchText,
+                            style: imageStyle
+                        }, void 0, false, {
+                            fileName: "src/pages/History/History.jsx",
+                            lineNumber: 92,
+                            columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                            children: item.searchText
+                        }, void 0, false, {
+                            fileName: "src/pages/History/History.jsx",
+                            lineNumber: 93,
+                            columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                            children: item.imageUrl
+                        }, void 0, false, {
+                            fileName: "src/pages/History/History.jsx",
+                            lineNumber: 94,
+                            columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                            to: `${item.imageUrl}`,
+                            children: "open..."
+                        }, void 0, false, {
+                            fileName: "src/pages/History/History.jsx",
+                            lineNumber: 97,
+                            columnNumber: 13
+                        }, undefined)
+                    ]
+                }, item._id, true, {
                     fileName: "src/pages/History/History.jsx",
-                    lineNumber: 88,
+                    lineNumber: 91,
                     columnNumber: 11
                 }, undefined))
         ]
     }, void 0, true, {
         fileName: "src/pages/History/History.jsx",
-        lineNumber: 71,
+        lineNumber: 72,
         columnNumber: 5
     }, undefined);
 };
