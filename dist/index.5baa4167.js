@@ -34573,7 +34573,8 @@ const ImageGenrator = ()=>{
                 }),
                 headers: {
                     "Content-Type": "application/json",
-                    authorization: "Bearer " + localStorage.getItem("authorization")
+                    authorization: "Bearer " + localStorage.getItem("authorization"),
+                    owner: "Anand-dahr-dwivedi"
                 }
             });
             if (!res.ok) {
@@ -34594,7 +34595,7 @@ const ImageGenrator = ()=>{
                 pageName: "imageGenerator"
             }, void 0, false, {
                 fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                lineNumber: 55,
+                lineNumber: 56,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34604,7 +34605,7 @@ const ImageGenrator = ()=>{
                         src: imageSrc
                     }, void 0, false, {
                         fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                        lineNumber: 58,
+                        lineNumber: 59,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34619,18 +34620,18 @@ const ImageGenrator = ()=>{
                                 type: "text"
                             }, void 0, false, {
                                 fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                                lineNumber: 60,
+                                lineNumber: 61,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {}, void 0, false, {
                                 fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                                lineNumber: 69,
+                                lineNumber: 70,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                        lineNumber: 59,
+                        lineNumber: 60,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -34643,19 +34644,19 @@ const ImageGenrator = ()=>{
                         children: "Generate"
                     }, void 0, false, {
                         fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                        lineNumber: 73,
+                        lineNumber: 74,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                lineNumber: 57,
+                lineNumber: 58,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-        lineNumber: 54,
+        lineNumber: 55,
         columnNumber: 5
     }, undefined);
 };

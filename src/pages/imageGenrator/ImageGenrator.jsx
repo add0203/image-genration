@@ -32,6 +32,7 @@ const ImageGenrator = () => {
           headers: {
             "Content-Type": "application/json",
             authorization: "Bearer " + localStorage.getItem("authorization"),
+            owner: "Anand-dahr-dwivedi",
           },
         }
       );
