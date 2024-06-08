@@ -28,6 +28,7 @@ const Navbar = (props) => {
   const customColor = (x) => {
     return { color: page === x ? "red" : "white" };
   };
+  console.log(isLoggedIn);
 
   return (
     <div className="header-parent-container">
@@ -35,20 +36,22 @@ const Navbar = (props) => {
         <Link to="/" style={customColor("home")}>
           Home
         </Link>
-
         <Link to="/image-genrator" style={customColor("imageGenerator")}>
           Image Genrator
         </Link>
-
         <Link to="/history" style={customColor("history")}>
           History
         </Link>
-        <Link to="/sign-up" style={customColor("signUp")}>
-          SingUp
-        </Link>
-        <Link to="/log-in" style={customColor("logIn")}>
-          LogIn
-        </Link>
+        {!isLoggedIn && (
+          <div className="sign-up-log-in">
+            <Link to="/sign-up" style={customColor("signUp")}>
+              SingUp
+            </Link>
+            <Link to="/log-in" style={customColor("logIn")}>
+              LogIn
+            </Link>
+          </div>
+        )}
       </div>
       <div
         className="right"

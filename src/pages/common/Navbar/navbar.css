@@ -44,3 +44,10 @@
   background-color: green;
   
 } */
+
+.sign-up-log-in {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20;
+}

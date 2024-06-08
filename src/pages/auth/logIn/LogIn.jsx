@@ -4,7 +4,7 @@ import PointsContext from "../../../context/Context";
 import "./LogIn.css";
 
 const LogIn = () => {
-  const { login } = useContext(PointsContext);
+  const { login, userPoints } = useContext(PointsContext);
   const [password, setPassword] = useState();
   const [email, setEmail] = useState();
 
@@ -26,31 +26,17 @@ const LogIn = () => {
     const data = await res.json();
     if (res.status === 200) {
       localStorage.setItem("authorization", data.data.token);
+      localStorage.setItem("userPoints", userPoints);
       login();
     }
 
-    console.log(data);
+    // console.log(data);
     // setResponse(data);
   };
 
   return (
     <div className="log-in-container">
       <Navbar pageName="logIn" />
-      {/* <div className="log-in-box">
-        <input
-          type="text"
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        />
-        <input
-          type="text"
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
-        <button onClick={handleClick}>LogIn</button>
-      </div> */}
 
       <div className="log-in-box">
         <div class="inputbox">
@@ -65,22 +51,7 @@ const LogIn = () => {
 
           <i></i>
         </div>
-        {/*         
-        <input
-          className="inputbox"
-          type="text"
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-          placeholder="Email"
-        /> */}
-        {/* <input
-          type="password"
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-          placeholder="Password"
-        /> */}
+
         <div class="inputbox">
           <input
             onChange={(e) => {

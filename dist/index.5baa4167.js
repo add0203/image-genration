@@ -27529,6 +27529,7 @@ const Navbar = (props)=>{
             color: page === x ? "red" : "white"
         };
     };
+    console.log(isLoggedIn);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "header-parent-container",
         children: [
@@ -27541,7 +27542,7 @@ const Navbar = (props)=>{
                         children: "Home"
                     }, void 0, false, {
                         fileName: "src/pages/common/Navbar/navbar.jsx",
-                        lineNumber: 35,
+                        lineNumber: 36,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -27559,31 +27560,40 @@ const Navbar = (props)=>{
                         children: "History"
                     }, void 0, false, {
                         fileName: "src/pages/common/Navbar/navbar.jsx",
-                        lineNumber: 43,
+                        lineNumber: 42,
                         columnNumber: 9
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                        to: "/sign-up",
-                        style: customColor("signUp"),
-                        children: "SingUp"
-                    }, void 0, false, {
+                    !isLoggedIn && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "sign-up-log-in",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                to: "/sign-up",
+                                style: customColor("signUp"),
+                                children: "SingUp"
+                            }, void 0, false, {
+                                fileName: "src/pages/common/Navbar/navbar.jsx",
+                                lineNumber: 47,
+                                columnNumber: 13
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                to: "/log-in",
+                                style: customColor("logIn"),
+                                children: "LogIn"
+                            }, void 0, false, {
+                                fileName: "src/pages/common/Navbar/navbar.jsx",
+                                lineNumber: 50,
+                                columnNumber: 13
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
                         fileName: "src/pages/common/Navbar/navbar.jsx",
                         lineNumber: 46,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                        to: "/log-in",
-                        style: customColor("logIn"),
-                        children: "LogIn"
-                    }, void 0, false, {
-                        fileName: "src/pages/common/Navbar/navbar.jsx",
-                        lineNumber: 49,
-                        columnNumber: 9
+                        columnNumber: 11
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/pages/common/Navbar/navbar.jsx",
-                lineNumber: 34,
+                lineNumber: 35,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27596,7 +27606,7 @@ const Navbar = (props)=>{
                 children: userPoints
             }, void 0, false, {
                 fileName: "src/pages/common/Navbar/navbar.jsx",
-                lineNumber: 53,
+                lineNumber: 56,
                 columnNumber: 7
             }, undefined),
             isLoggedIn ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -27606,7 +27616,7 @@ const Navbar = (props)=>{
                 children: "Logout"
             }, void 0, false, {
                 fileName: "src/pages/common/Navbar/navbar.jsx",
-                lineNumber: 60,
+                lineNumber: 63,
                 columnNumber: 9
             }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 className: "button-50",
@@ -27615,13 +27625,13 @@ const Navbar = (props)=>{
                 children: "Login"
             }, void 0, false, {
                 fileName: "src/pages/common/Navbar/navbar.jsx",
-                lineNumber: 64,
+                lineNumber: 67,
                 columnNumber: 9
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/pages/common/Navbar/navbar.jsx",
-        lineNumber: 33,
+        lineNumber: 34,
         columnNumber: 5
     }, undefined);
 };
@@ -34566,7 +34576,7 @@ const ImageGenrator = ()=>{
             const data = await res.json();
             if (data?.status === 200) setImgSrc(data.data.imageUrl);
         } catch (error) {
-            console.log(error);
+            console.log(error + "at the catch of imagegenrator");
         }
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35042,7 +35052,7 @@ var _logInCss = require("./LogIn.css");
 var _s = $RefreshSig$();
 const LogIn = ()=>{
     _s();
-    const { login } = (0, _react.useContext)((0, _contextDefault.default));
+    const { login, userPoints } = (0, _react.useContext)((0, _contextDefault.default));
     const [password, setPassword] = (0, _react.useState)();
     const [email, setEmail] = (0, _react.useState)();
     const handleClick = async ()=>{
@@ -35060,9 +35070,10 @@ const LogIn = ()=>{
         const data = await res.json();
         if (res.status === 200) {
             localStorage.setItem("authorization", data.data.token);
+            localStorage.setItem("userPoints", userPoints);
             login();
         }
-        console.log(data);
+    // console.log(data);
     // setResponse(data);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35072,7 +35083,7 @@ const LogIn = ()=>{
                 pageName: "logIn"
             }, void 0, false, {
                 fileName: "src/pages/auth/logIn/LogIn.jsx",
-                lineNumber: 38,
+                lineNumber: 39,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35090,18 +35101,18 @@ const LogIn = ()=>{
                                 placeholder: "Email"
                             }, void 0, false, {
                                 fileName: "src/pages/auth/logIn/LogIn.jsx",
-                                lineNumber: 57,
+                                lineNumber: 43,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {}, void 0, false, {
                                 fileName: "src/pages/auth/logIn/LogIn.jsx",
-                                lineNumber: 66,
+                                lineNumber: 52,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/pages/auth/logIn/LogIn.jsx",
-                        lineNumber: 56,
+                        lineNumber: 42,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35116,18 +35127,18 @@ const LogIn = ()=>{
                                 type: "text"
                             }, void 0, false, {
                                 fileName: "src/pages/auth/logIn/LogIn.jsx",
-                                lineNumber: 85,
+                                lineNumber: 56,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {}, void 0, false, {
                                 fileName: "src/pages/auth/logIn/LogIn.jsx",
-                                lineNumber: 94,
+                                lineNumber: 65,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/pages/auth/logIn/LogIn.jsx",
-                        lineNumber: 84,
+                        lineNumber: 55,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -35137,23 +35148,23 @@ const LogIn = ()=>{
                         children: "LogIn"
                     }, void 0, false, {
                         fileName: "src/pages/auth/logIn/LogIn.jsx",
-                        lineNumber: 97,
+                        lineNumber: 68,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/pages/auth/logIn/LogIn.jsx",
-                lineNumber: 55,
+                lineNumber: 41,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/pages/auth/logIn/LogIn.jsx",
-        lineNumber: 37,
+        lineNumber: 38,
         columnNumber: 5
     }, undefined);
 };
-_s(LogIn, "im5KnKk2/uF/knVFaGSJ145B2nM=");
+_s(LogIn, "c9YWg75VYz/pYhUlNv81PaLeTE8=");
 _c = LogIn;
 exports.default = LogIn;
 var _c;

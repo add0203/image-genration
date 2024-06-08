@@ -38,6 +38,13 @@
   }
 }
 
+.sign-up-log-in {
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  display: flex;
+}
+
 * {
   background-color: #000;
 }

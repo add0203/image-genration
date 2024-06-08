@@ -40,7 +40,7 @@ const ImageGenrator = () => {
         setImgSrc(data.data.imageUrl);
       }
     } catch (error) {
-      console.log(error);
+      console.log(error + "at the catch of imagegenrator");
     }
   };
 
