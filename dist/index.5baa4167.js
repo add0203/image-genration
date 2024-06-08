@@ -3009,7 +3009,7 @@ const App = ()=>{
                 fileName: "app.js",
                 lineNumber: 51,
                 columnNumber: 29
-            }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Navigate, {
+            }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Navigate), {
                 to: "/log-in"
             }, void 0, false, {
                 fileName: "app.js",
@@ -3039,7 +3039,7 @@ const App = ()=>{
                 fileName: "app.js",
                 lineNumber: 63,
                 columnNumber: 29
-            }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Navigate, {
+            }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Navigate), {
                 to: "/log-in"
             }, void 0, false, {
                 fileName: "app.js",

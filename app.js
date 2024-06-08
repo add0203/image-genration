@@ -5,7 +5,7 @@ import ImageGenrator from "./src/pages/imageGenrator/ImageGenrator";
 import {
   createBrowserRouter,
   RouterProvider,
-  // useNavigate,
+  Navigate,
   Link,
 } from "react-router-dom";
 import History from "./src/pages/History/History";
