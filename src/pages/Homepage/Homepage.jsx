@@ -23,6 +23,7 @@ import React, { useState } from "react";
 import Navbar from "../common/Navbar/navbar";
 import "./Homepage.css";
 import React from "react";
+import linkdinImg from "../../assets/linkedin.png";
 
 const Homepage = () => {
   const redirectToGitHub = () => {
@@ -38,6 +39,13 @@ const Homepage = () => {
           Made During 2.5 weeks bootcamp by Programming Pathsala
         </p>
         <Button onClick={redirectToGitHub}>Go to GitHub</Button>
+        <a href="" className="social-link">
+          <img
+            src={linkdinImg}
+            alt=""
+            style={{ height: "35px", width: "35px" }}
+          />
+        </a>
       </div>
     </div>
   );

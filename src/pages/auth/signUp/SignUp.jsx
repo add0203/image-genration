@@ -136,10 +136,10 @@ const SignUp = () => {
             onChange={(e) => {
               setEmail(e.target.value);
             }}
-            placeholder="Email"
             required="required"
             type="text"
           />
+          <span> Email</span>
           <i></i>
         </div>
         <div className="inputbox">
@@ -147,10 +147,10 @@ const SignUp = () => {
             onChange={(e) => {
               setPassword(e.target.value);
             }}
-            placeholder="Password"
             required="required"
             type={showPassword ? "text" : "password"}
           />
+          <span> Password</span>
           <i></i>
         </div>
         <button

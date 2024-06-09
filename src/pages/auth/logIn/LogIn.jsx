@@ -102,6 +102,8 @@ import React, { useContext, useState } from "react";
 import Navbar from "../../common/Navbar/navbar";
 import PointsContext from "../../../context/Context";
 import "./LogIn.css";
+// import { useNavigate } from "react-router-dom";
+// const navigate = useNavigate();
 
 const LogIn = () => {
   const { login, userPoints } = useContext(PointsContext);
@@ -135,6 +137,7 @@ const LogIn = () => {
         localStorage.setItem("authorization", data.data.token);
         localStorage.setItem("userPoints", userPoints);
         login();
+        // navigate("/image-genrator");
       } else {
         setResponseMessage(data.message || "An error occurred during login.");
         setIsError(true);
@@ -157,9 +160,8 @@ const LogIn = () => {
             }}
             required="required"
             type="text"
-            placeholder="Email"
           />
-
+          <span> Email</span>
           <i></i>
         </div>
 
@@ -168,12 +170,11 @@ const LogIn = () => {
             onChange={(e) => {
               setPassword(e.target.value);
             }}
-            placeholder="Password"
             required="required"
             // type="password"
             type={showPassword ? "text" : "password"}
           />
-
+          <span> Password</span>
           <i></i>
         </div>
 

@@ -1,29 +1,37 @@
+/* Apply a black background to the entire page */
 * {
   background-color: black;
 }
 
+/* Style the parent container */
 .image-gen-parent-container {
   margin: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  .img {
-    display: flex;
-    padding: 20px;
-    img {
-      border-radius: 20px;
-    }
-  }
 }
 
-/* input {
-  background-color: white;
+/* Style the image container */
+.image-gen-parent-container .img {
+  display: flex;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
 
-  color: black;
-  margin: 20px;
-} */
+.image-gen-parent-container .img img {
+  border-radius: 20px;
+  transition: transform 0.5s, box-shadow 0.5s;
+  border: 3px solid #ffffff;
+  max-width: 100%;
+  max-height: 100%;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
 
+/* Hover effect on image */
+
+/* Style the input box */
 .inputbox {
   margin: 20px;
   position: relative;
@@ -38,7 +46,7 @@
   outline: none;
   box-shadow: none;
   border: none;
-  color: #23242a;
+  color: #ffffff;
   font-size: 1em;
   letter-spacing: 0.05em;
   transition: 0.5s;
@@ -51,7 +59,7 @@
   padding: 20px 10px 10px;
   font-size: 1em;
   color: #8f8f8f;
-  letter-spacing: 00.05em;
+  letter-spacing: 0.05em;
   transition: 0.5s;
   pointer-events: none;
 }
@@ -60,7 +68,7 @@
 .inputbox input:focus ~ span {
   color: #45f3ff;
   transform: translateX(-10px) translateY(-34px);
-  font-size: 0, 75em;
+  font-size: 0.75em;
 }
 
 .inputbox i {

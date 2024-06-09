@@ -47,9 +47,9 @@ const Navbar = (props) => {
             <Link to="/sign-up" style={customColor("signUp")}>
               SingUp
             </Link>
-            <Link to="/log-in" style={customColor("logIn")}>
+            {/* <Link to="/log-in" style={customColor("logIn")}>
               LogIn
-            </Link>
+            </Link> */}
           </div>
         )}
       </div>

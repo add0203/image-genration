@@ -56,21 +56,24 @@ const ImageGenrator = () => {
       <Navbar pageName="imageGenerator" />
 
       <div className="image-gen-parent-container">
-        <img src={imageSrc} />
+        <div className="img">
+          {imageSrc && <img src={imageSrc} alt="Generated" />}
+          {/* {imageSrc && <a href={imageSrc}>download</a>} */}
+        </div>
+
+        <br />
         <div className="inputbox">
           <input
             onChange={(e) => {
               func(e);
             }}
-            placeholder="What to create?"
+            // placeholder=""
             required="required"
             type="text"
           />
-
+          <span> What to create?</span>
           <i></i>
         </div>
-        {/* onClick={() => setUserPoints(userPoints + 1)} */}
-        {/* <button onClick={handleClick}>Generate</button> */}
         <button
           className="button-50"
           role="button"
