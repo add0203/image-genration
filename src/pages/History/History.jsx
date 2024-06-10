@@ -63,8 +63,8 @@ const History = (props) => {
   };
 
   const imageStyle = {
-    width: "200px",
-    height: "200px",
+    width: "400px",
+    height: "400px",
     objectFit: "cover",
     borderRadius: "8px",
   };
@@ -94,7 +94,7 @@ const History = (props) => {
             <p>{item.imageUrl}</p>
 
             {/* <Link to={`/history/${item.imageUrl}`}>More..</Link> */}
-            <Link to={`${item.imageUrl}`}>open...</Link>
+            <Link to={`${item.imageUrl}`}>Open</Link>
             {/* </div> */}
           </div>
         ))

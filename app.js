@@ -22,6 +22,7 @@ const root = ReactDOM.createRoot(parent);
 
 const App = () => {
   // const [redirectToLogin, setRedirectToLogin] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useState();
   const [userPoints, setUserPoints] = useState(1);
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
     if (localStorage.getItem("authorization")) {
@@ -37,7 +38,8 @@ const App = () => {
   };
   const logout = () => {
     localStorage.removeItem("authorization");
-    localStorage.removeItem("userPoints");
+    setLoggedInUser("");
+
     setIsLoggedIn(false);
   };
 
@@ -77,6 +79,8 @@ const App = () => {
         isLoggedIn: isLoggedIn,
         login,
         logout,
+        loggedInUser,
+        setLoggedInUser,
       }}
     >
       <RouterProvider router={router} />

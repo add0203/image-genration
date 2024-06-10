@@ -1,25 +1,5 @@
-// import React from "react";
-// import Navbar from "../common/Navbar/navbar";
-// import "./Homepage.css";
-
-// const Homepage = (props) => {
-//   // const { userPoints, setUserPoints } = props;
-//   return (
-//     <div className="homepage-parent-container">
-//       <Navbar
-//         pageName="home"
-//         // userPoints={userPoints}
-//         // setUserPoints={setUserPoints}
-//       />
-//       HOME PAGE
-//     </div>
-//   );
-// };
-
-// export default Homepage;
-
 import React from "react";
-import React, { useState } from "react";
+
 import Navbar from "../common/Navbar/navbar";
 import "./Homepage.css";
 import React from "react";
@@ -39,7 +19,11 @@ const Homepage = () => {
           Made During 2.5 weeks bootcamp by Programming Pathsala
         </p>
         <Button onClick={redirectToGitHub}>Go to GitHub</Button>
-        <a href="" className="social-link">
+        <a
+          href="https://www.linkedin.com/in/anand-dhar-dwivedi/"
+          className="social-link"
+          target="_blank"
+        >
           <img
             src={linkdinImg}
             alt=""

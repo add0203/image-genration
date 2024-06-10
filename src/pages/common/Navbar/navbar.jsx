@@ -13,7 +13,7 @@ const Navbar = (props) => {
   const [redirectToLogin, setRedirectToLogin] = useState(false);
 
   const handleLoginClick = () => {
-    // login(); // Call the login function from context
+    //login(); // Call the login function from context
     setRedirectToLogin(true);
   };
 
@@ -28,7 +28,7 @@ const Navbar = (props) => {
   const customColor = (x) => {
     return { color: page === x ? "red" : "white" };
   };
-  console.log(isLoggedIn);
+  // console.log(isLoggedIn);
 
   return (
     <div className="header-parent-container">

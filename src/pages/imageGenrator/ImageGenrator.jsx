@@ -12,15 +12,12 @@ const ImageGenrator = () => {
     setSearchText(e.target.value);
   };
 
-  const { userPoints, setUserPoints } = useContext(PointsContext);
+  const { userPoints, setUserPoints, loggedInUser, setLoggedInUser } =
+    useContext(PointsContext);
+  // console.log("user detail :");
+  console.log(loggedInUser);
   const handleClick = async () => {
-    // if (!token) {
-    //   console.error("No token found in localStorage");
-    //   return;
-    // }
-    // console.log(localStorage.getItem("authorization"));
-
-    // setUserPoints(userPoints - 1);
+    setUserPoints(userPoints - 1);
     try {
       const res = await fetch(
         `${process.env.BACKEND_URL}/api/v1/image/genrateImage`,
@@ -28,14 +25,17 @@ const ImageGenrator = () => {
           method: "POST",
           body: JSON.stringify({
             searchText: searchText,
+            userCoins: userPoints,
+            loggedInUser: loggedInUser,
           }),
           headers: {
             "Content-Type": "application/json",
             authorization: "Bearer " + localStorage.getItem("authorization"),
-            owner: "Anand-dahr-dwivedi",
+            owner: "Anand-dhar-dwivedi",
           },
         }
       );
+      localStorage.setItem("loggedInUser", loggedInUser);
       if (!res.ok) {
         // Handle non-200 responses
         const errorText = await res.text();
@@ -43,6 +43,8 @@ const ImageGenrator = () => {
         return;
       }
       const data = await res.json();
+      // checking the presence of user
+
       if (data?.status === 200) {
         setImgSrc(data.data.imageUrl);
       }
@@ -79,7 +81,6 @@ const ImageGenrator = () => {
           role="button"
           onClick={() => {
             handleClick();
-            setUserPoints(userPoints - 1);
           }}
         >
           Generate
