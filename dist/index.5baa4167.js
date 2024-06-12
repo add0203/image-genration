@@ -27503,7 +27503,7 @@ $RefreshReg$(_c, "Homepage");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../common/Navbar/navbar":"6O5to","./Homepage.css":"fpIzf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../../assets/linkedin.png":"hNy5i"}],"6O5to":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../common/Navbar/navbar":"6O5to","./Homepage.css":"fpIzf","../../assets/linkedin.png":"hNy5i","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"6O5to":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$a05b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -34575,6 +34575,188 @@ var prevRefreshSig = window.$RefreshSig$;
 $parcel$ReactRefreshHelpers$68a3.prelude(module);
 
 try {
+// import React, { useState, useEffect } from "react";
+// import "./ImageGenrator.css";
+// import Navbar from "../common/Navbar/navbar";
+// import { useContext } from "react";
+// import PointsContext from "../../context/Context";
+// const ImageGenrator = () => {
+//   const [searchText, setSearchText] = useState("");
+//   const [imageSrc, setImgSrc] = useState("");
+//   const func = (e) => {
+//     setSearchText(e.target.value);
+//   };
+//   const { userPoints, setUserPoints, loggedInUser } = useContext(PointsContext);
+//   // console.log("user detail :");
+//   // console.log(loggedInUser);
+//   const handleClick = async () => {
+//     try {
+//       const res = await fetch(
+//         `${process.env.BACKEND_URL}/api/v1/image/genrateImage`,
+//         {
+//           method: "POST",
+//           body: JSON.stringify({
+//             searchText: searchText,
+//             userCoins: userPoints,
+//             loggedInUser: loggedInUser,
+//           }),
+//           headers: {
+//             "Content-Type": "application/json",
+//             authorization: "Bearer " + localStorage.getItem("authorization"),
+//           },
+//         }
+//       );
+//       // localStorage.setItem("loggedInUser", loggedInUser);
+//       if (!res.ok) {
+//         // Handle non-200 responses
+//         const errorText = await res.text();
+//         console.error("Error fetching data:", errorText);
+//         return;
+//       }
+//       const data = await res.json();
+//       // checking the presence of user
+//       console.log(data.data.imageUrl);
+//       if (data?.status === 200) {
+//         setImgSrc(data.data.imageUrl);
+//       }
+//     } catch (error) {
+//       console.log(error + "at the catch of imagegenrator");
+//     }
+//   };
+//   return (
+//     <div>
+//       <Navbar pageName="imageGenerator" />
+//       <div className="image-gen-parent-container">
+//         <div className="img">
+//           {imageSrc}
+//           <img src={imageSrc} alt="Generating" />
+//           {/* {imageSrc && <a href={imageSrc}>download</a>} */}
+//         </div>
+//         <br />
+//         <div className="inputbox">
+//           <input
+//             onChange={(e) => {
+//               func(e);
+//             }}
+//             // placeholder=""
+//             required="required"
+//             type="text"
+//           />
+//           <span> What to create?</span>
+//           <i></i>
+//         </div>
+//         <button
+//           className="button-50"
+//           role="button"
+//           onClick={() => {
+//             handleClick();
+//             setUserPoints(userPoints - 1);
+//           }}
+//         >
+//           Generate
+//         </button>
+//       </div>
+//     </div>
+//   );
+// };
+// export default ImageGenrator;
+// {
+//   /* <button
+//   onClick={() => {
+//     setDisplay(!display);
+//   }}
+//   className=""
+// >
+//   Hide Image
+// </button> */
+// }
+// {
+//   /* {display && (
+//   <div className="img">
+//     <img src="https://picsum.photos/300/300" alt="" />
+//   </div>
+// )} */
+// }
+// {
+//   /* {valueEntered} */
+// }
+// {
+//   /* <button onClick={handleRefresh} className="">
+//   Get New Image
+// </button> */
+// }
+// import React, { useState, useEffect, useContext } from "react";
+// import "./ImageGenrator.css";
+// import Navbar from "../common/Navbar/navbar";
+// import PointsContext from "../../context/Context";
+// const ImageGenerator = () => {
+//   const [searchText, setSearchText] = useState("");
+//   const [imageSrc, setImgSrc] = useState("");
+//   const { userPoints, setUserPoints, loggedInUser, setLoggedInUser } =
+//     useContext(PointsContext);
+//   const handleChange = (e) => {
+//     setSearchText(e.target.value);
+//   };
+//   const handleClick = async () => {
+//     setUserPoints(userPoints - 1);
+//     try {
+//       const res = await fetch(
+//         `${process.env.BACKEND_URL}/api/v1/image/genrateImage`,
+//         {
+//           method: "POST",
+//           body: JSON.stringify({
+//             searchText,
+//             userCoins: userPoints,
+//             loggedInUser,
+//           }),
+//           headers: {
+//             "Content-Type": "application/json",
+//             authorization: "Bearer " + localStorage.getItem("authorization"),
+//           },
+//         }
+//       );
+//       if (!res.ok) {
+//         const errorText = await res.text();
+//         console.error("Error fetching data:", errorText);
+//         return;
+//       }
+//       const data = await res.json();
+//       console.log("Response data:", data);
+//       if (data?.status === 200 && data.data?.imageUrl) {
+//         setImgSrc(data.data.imageUrl);
+//       } else {
+//         console.error("Invalid response data:", data);
+//       }
+//     } catch (error) {
+//       console.error("Error at the catch of imageGenerator:", error);
+//     }
+//   };
+//   return (
+//     <div>
+//       <Navbar pageName="imageGenerator" />
+//       <div className="image-gen-parent-container">
+//         <div className="img">
+//           {imageSrc && <img src={imageSrc} alt="Generating" />}
+//         </div>
+//         <br />
+//         <div className="inputbox">
+//           <input
+//             onChange={handleChange}
+//             value={searchText}
+//             required
+//             type="text"
+//           />
+//           <span> What to create?</span>
+//           <i></i>
+//         </div>
+//         <button className="button-50" role="button" onClick={handleClick}>
+//           Generate
+//         </button>
+//       </div>
+//     </div>
+//   );
+// };
+// export default ImageGenerator;
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
@@ -34586,44 +34768,45 @@ var _navbarDefault = parcelHelpers.interopDefault(_navbar);
 var _context = require("../../context/Context");
 var _contextDefault = parcelHelpers.interopDefault(_context);
 var _s = $RefreshSig$();
-const ImageGenrator = ()=>{
+const ImageGenerator = ()=>{
     _s();
-    const [searchText, setSearchText] = (0, _react.useState)();
+    const [searchText, setSearchText] = (0, _react.useState)("");
     const [imageSrc, setImgSrc] = (0, _react.useState)("");
-    const func = (e)=>{
+    const [loading, setLoading] = (0, _react.useState)(false); // Add loading state
+    const { userPoints, setUserPoints, loggedInUser } = (0, _react.useContext)((0, _contextDefault.default));
+    const handleChange = (e)=>{
         setSearchText(e.target.value);
     };
-    const { userPoints, setUserPoints, loggedInUser, setLoggedInUser } = (0, _react.useContext)((0, _contextDefault.default));
-    // console.log("user detail :");
-    console.log(loggedInUser);
     const handleClick = async ()=>{
         setUserPoints(userPoints - 1);
+        setLoading(true); // Start loading
         try {
             const res = await fetch(`${"http://localhost:5001"}/api/v1/image/genrateImage`, {
                 method: "POST",
                 body: JSON.stringify({
-                    searchText: searchText,
+                    searchText,
                     userCoins: userPoints,
-                    loggedInUser: loggedInUser
+                    loggedInUser
                 }),
                 headers: {
                     "Content-Type": "application/json",
-                    authorization: "Bearer " + localStorage.getItem("authorization"),
-                    owner: "Anand-dhar-dwivedi"
+                    authorization: "Bearer " + localStorage.getItem("authorization")
                 }
             });
-            localStorage.setItem("loggedInUser", loggedInUser);
             if (!res.ok) {
-                // Handle non-200 responses
                 const errorText = await res.text();
                 console.error("Error fetching data:", errorText);
+                setLoading(false); // Stop loading on error
                 return;
             }
             const data = await res.json();
-            // checking the presence of user
-            if (data?.status === 200) setImgSrc(data.data.imageUrl);
+            console.log("Response data:", data);
+            if (data?.status === 200 && data.data?.imageUrl) setImgSrc(data.data.imageUrl);
+            else console.error("Invalid response data:", data);
         } catch (error) {
-            console.log(error + "at the catch of imagegenrator");
+            console.error("Error at the catch of imageGenerator:", error);
+        } finally{
+            setLoading(false); // Stop loading once done
         }
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34632,7 +34815,7 @@ const ImageGenrator = ()=>{
                 pageName: "imageGenerator"
             }, void 0, false, {
                 fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                lineNumber: 58,
+                lineNumber: 259,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34640,87 +34823,89 @@ const ImageGenrator = ()=>{
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         className: "img",
-                        children: imageSrc && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                        children: loading ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            children: "Generating..."
+                        }, void 0, false, {
+                            fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
+                            lineNumber: 263,
+                            columnNumber: 13
+                        }, undefined) : imageSrc && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                             src: imageSrc,
                             alt: "Generated"
                         }, void 0, false, {
                             fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                            lineNumber: 62,
-                            columnNumber: 24
+                            lineNumber: 265,
+                            columnNumber: 25
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                        lineNumber: 61,
+                        lineNumber: 261,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                         fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                        lineNumber: 66,
+                        lineNumber: 268,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         className: "inputbox",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                onChange: (e)=>{
-                                    func(e);
-                                },
-                                // placeholder=""
-                                required: "required",
+                                onChange: handleChange,
+                                value: searchText,
+                                required: true,
                                 type: "text"
                             }, void 0, false, {
                                 fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                                lineNumber: 68,
+                                lineNumber: 270,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                 children: " What to create?"
                             }, void 0, false, {
                                 fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                                lineNumber: 76,
+                                lineNumber: 276,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {}, void 0, false, {
                                 fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                                lineNumber: 77,
+                                lineNumber: 277,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                        lineNumber: 67,
+                        lineNumber: 269,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         className: "button-50",
                         role: "button",
-                        onClick: ()=>{
-                            handleClick();
-                        },
+                        onClick: handleClick,
                         children: "Generate"
                     }, void 0, false, {
                         fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                        lineNumber: 79,
+                        lineNumber: 279,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-                lineNumber: 60,
+                lineNumber: 260,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/pages/imageGenrator/ImageGenrator.jsx",
-        lineNumber: 57,
+        lineNumber: 258,
         columnNumber: 5
     }, undefined);
 };
-_s(ImageGenrator, "AMsQfOF6kwXDOJVwS37dDdn00OI=");
-_c = ImageGenrator;
-exports.default = ImageGenrator;
+_s(ImageGenerator, "WIIHdk14Koos/j9K3FlF5DQpM1c=");
+_c = ImageGenerator;
+exports.default = ImageGenerator;
 var _c;
-$RefreshReg$(_c, "ImageGenrator");
+$RefreshReg$(_c, "ImageGenerator");
 
   $parcel$ReactRefreshHelpers$68a3.postlude(module);
 } finally {
@@ -35151,7 +35336,7 @@ $RefreshReg$(_c, "SignUp");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../../common/Navbar/navbar":"6O5to","./SignUp.css":"3pgeH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../../../context/Context":"5uxAP"}],"3pgeH":[function() {},{}],"5DL9j":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../../common/Navbar/navbar":"6O5to","../../../context/Context":"5uxAP","./SignUp.css":"3pgeH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3pgeH":[function() {},{}],"5DL9j":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$1c2a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
