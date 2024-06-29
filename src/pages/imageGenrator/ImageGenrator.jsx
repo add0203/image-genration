@@ -382,7 +382,10 @@ const ImageGenerator = () => {
           {loading ? (
             <p>Generating...</p>
           ) : (
-            imageSrc && (<a href={imageSrc}><img src={imageSrc} alt="Generated" /></a>)
+            imageSrc && (
+              <>
+              <a href={imageSrc}><img src={imageSrc} alt="Generated" /></a>)
+              </>
           )}
         
           
