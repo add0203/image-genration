@@ -386,9 +386,9 @@ const ImageGenerator = () => {
           )}
         
           {fetchError && <p>Failed to fetch the image. Please try again. API expired content to developer to update the API</p>}
-          <br/>
-          {!loading && !fetchError && imageSrc && <p>Image Generated Successfully</p>}
+          
         </div>
+          {!loading && !fetchError && imageSrc && <p>Image Generated Successfully</p>}
         <br />
         <div className="inputbox">
           <input
