@@ -29,13 +29,12 @@
   transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
-/* Hover effect on image */
-
 /* Style the input box */
 .inputbox {
   margin: 20px;
   position: relative;
-  width: 196px;
+  width: 100%;
+  max-width: 300px;
 }
 
 .inputbox input {
@@ -87,4 +86,53 @@
 .inputbox input:valid ~ i,
 .inputbox input:focus ~ i {
   height: 44px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .image-gen-parent-container {
+    margin: 10px;
+  }
+
+  .image-gen-parent-container .img {
+    padding: 10px;
+  }
+
+  .image-gen-parent-container .img img {
+    border-radius: 10px;
+  }
+
+  .inputbox {
+    margin: 10px;
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-gen-parent-container {
+    margin: 5px;
+  }
+
+  .image-gen-parent-container .img {
+    padding: 5px;
+  }
+
+  .image-gen-parent-container .img img {
+    border-radius: 5px;
+  }
+
+  .inputbox {
+    margin: 5px;
+    width: 100%;
+  }
+
+  .inputbox input {
+    padding: 15px 5px 5px;
+    font-size: 0.9em;
+  }
+
+  .inputbox span {
+    font-size: 0.9em;
+    padding: 15px 5px 5px;
+  }
 }
