@@ -206,6 +206,7 @@ import PointsContext from "../../context/Context";
 const ImageGenerator = () => {
   const [searchText, setSearchText] = useState("");
   const [imageSrc, setImgSrc] = useState("");
+  const [fetchError, setFetchError] = useState(false);
   const [loading, setLoading] = useState(false); // Add loading state
   const { userPoints, setUserPoints, loggedInUser } = useContext(PointsContext);
 
@@ -243,7 +244,12 @@ const ImageGenerator = () => {
       const data = await res.json();
       console.log("Response data:", data);
       if (data?.status === 200 && data.data?.imageUrl) {
+        try{
         setImgSrc(data.data.imageUrl);
+        }
+        catch(e){
+          setFetchError(true);
+        }
       } else {
         console.error("Invalid response data:", data);
       }
@@ -264,6 +270,13 @@ const ImageGenerator = () => {
           ) : (
             imageSrc && <img src={imageSrc} alt="Generated" />
           )}
+          {
+            fetchError ? (
+              <p>Fetch API Expire Error</p>
+            ):(
+              <p>Image Genrated</p>
+            )
+          }
         </div>
         <br />
         <div className="inputbox">
