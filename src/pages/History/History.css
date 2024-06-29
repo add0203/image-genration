@@ -1,69 +1,35 @@
+
+
+
+/* Import the base styles if needed */
+/* .History.css */
+
+/* Apply general styles */
 * {
-  color: white;
-  font-family: "Courier New", Courier, monospace;
-  /* background-color: white; */
+  box-sizing: border-box;
 }
 
-/* src/styles.css */
-.history-card {
-  /* background-color: gray;  */
-  border-radius: 8px; /* Rounded corners */
-  padding: 16px; /* Padding inside the card */
-  margin: 16px 0; /* Margin between cards */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.history-card h4 {
-  padding: 30px;
-  margin: 0 0 8px;
-  font-size: 1.25em;
-  color: white;
-}
-
-.history-card p {
-  margin: 0;
-  color: white;
-}
-
+/* Style for input box */
 .inputbox {
   margin: 20px;
   position: relative;
-  width: 196px;
+  width: 100%;
+  max-width: 400px; /* Limit width on larger screens */
 }
 
 .inputbox input {
-  position: relative;
   width: 100%;
-  padding: 20px 10px 10px;
+  padding: 12px;
   background: transparent;
-  outline: none;
-  box-shadow: none;
   border: none;
-  color: #23242a;
+  border-bottom: 1px solid #ccc; /* Bottom border for input */
+  color: white;
   font-size: 1em;
-  letter-spacing: 0.05em;
-  transition: 0.5s;
-  z-index: 10;
+  outline: none;
 }
 
-.inputbox span {
-  position: absolute;
-  left: 0;
-  padding: 20px 10px 10px;
-  font-size: 1em;
-  color: #8f8f8f;
-  letter-spacing: 00.05em;
-  transition: 0.5s;
-  pointer-events: none;
-}
-
-.inputbox input:valid ~ span,
-.inputbox input:focus ~ span {
-  color: #45f3ff;
-  transform: translateX(-10px) translateY(-34px);
-  font-size: 0, 75em;
+.inputbox input:focus {
+  border-bottom-color: #45f3ff; /* Highlight color on focus */
 }
 
 .inputbox i {
@@ -73,13 +39,68 @@
   width: 100%;
   height: 2px;
   background: #45f3ff;
-  border-radius: 4px;
-  transition: 0.5s;
-  pointer-events: none;
-  z-index: 9;
+  transition: height 0.3s ease; /* Smooth transition for underline */
 }
 
-.inputbox input:valid ~ i,
 .inputbox input:focus ~ i {
-  height: 44px;
+  height: 4px; /* Increased underline height on focus */
+}
+
+/* Style for history card */
+.cardStyle {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  text-align: center;
+}
+
+.cardStyle img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cardStyle h4 {
+  margin: 8px 0;
+  font-size: 1.25em;
+  color: white;
+}
+
+.cardStyle p {
+  margin: 8px 0;
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .inputbox {
+    max-width: 100%; /* Adjust width for smaller screens */
+  }
+
+  .cardStyle {
+    padding: 12px; /* Reduced padding for cards on smaller screens */
+  }
+
+  .cardStyle h4 {
+    font-size: 1em; /* Smaller font size for headings on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .inputbox {
+    max-width: 100%; /* Full width for very small screens */
+  }
+
+  .cardStyle {
+    padding: 8px; /* Further reduced padding for very small screens */
+  }
+
+  .cardStyle h4 {
+    font-size: 0.9em; /* Smaller font size for headings on very small screens */
+  }
 }
