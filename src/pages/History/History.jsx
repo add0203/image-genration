@@ -318,7 +318,7 @@ const History = (props) => {
       </div>
 
       <div className="history-cards-container">
-        {data.map((item) => (
+        {data.reverse().map((item) => (
           <div key={item._id} className="history-card">
             <img
               src={item.imageUrl}
