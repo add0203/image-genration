@@ -1,51 +1,23 @@
+
 /* Base styles */
-.sign-up-container {
-  /* Styles for sign-up-container if needed */
+.sign-up-container  {
+  /* Styles for log-in-container if needed */
 }
 
 .sign-up-container .sign-up-box {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   margin: 50px;
-}
-
-.button-54 {
-  /* font-family: "Open Sans", sans-serif; */
-  font-size: 5px; /* Reduced font size */
-  letter-spacing: 1px; /* Adjusted letter spacing */
-  text-decoration: none;
-  text-transform: uppercase;
-  color: black;
-  cursor: pointer;
-  border: 2px solid #fff; /* Reduced border width */
-  padding: 0.15em 0.3em; /* Reduced padding */
-  box-shadow: 1px 1px 0px 0px black, 2px 2px 0px 0px #ffffff, 3px 3px 0px 0px #ffffff; /* Adjusted shadow size */
-  background-color: #ffffff; /* White background */
-  position: relative;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.button-54:active {
-  box-shadow: 0px 0px 0px 0px;
-  top: 3px; /* Adjusted for reduced size */
-  left: 3px; /* Adjusted for reduced size */
+  gap: 10px;
 }
 
 /* Responsive styles */
-@media (min-width: 768px) {
-  .sign-up-container .sign-up-box {
-    margin: 40px;
+@media (max-width: 768px) {
+.sign-up-container .sign-up-box {
+    margin: 30px;
     gap: 8px;
-  }
-
-  .button-54 {
-    font-size: 7px; /* Adjust font size for larger screens */
-    padding: 0.2em 0.4em; /* Adjusted padding for larger screens */
-    box-shadow: 1px 1px 0px 0px black, 2px 2px 0px 0px #ffffff, 4px 4px 0px 0px #ffffff; /* Adjusted shadow size */
   }
 }
 
@@ -53,11 +25,5 @@
   .sign-up-container .sign-up-box {
     margin: 20px;
     gap: 5px;
-  }
-
-  .button-54 {
-    font-size: 4px; /* Further reduced font size for smaller screens */
-    padding: 0.1em 0.2em; /* Further reduced padding for smaller screens */
-    box-shadow: 1px 1px 0px 0px black, 2px 2px 0px 0px #ffffff; /* Adjusted shadow size for smaller screens */
   }
 }
