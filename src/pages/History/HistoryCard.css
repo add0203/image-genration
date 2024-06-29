@@ -1,10 +1,12 @@
+
+/* Apply white color to all text */
 * {
   color: white;
 }
 
-/* src/styles.css */
+/* Styles for .history-card */
 .history-card {
-  /* background-color: gray;  */
+  background-color: gray; /* Background color */
   border-radius: 8px; /* Rounded corners */
   padding: 16px; /* Padding inside the card */
   margin: 16px 0; /* Margin between cards */
@@ -14,12 +16,31 @@
 }
 
 .history-card h4 {
-  margin: 0 0 8px;
-  font-size: 1.25em;
-  color: white;
+  margin: 0 0 8px; /* Margin for heading */
+  font-size: 1.25em; /* Font size for heading */
 }
 
 .history-card p {
-  margin: 0;
-  color: white;
+  margin: 0; /* Margin for paragraph */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .history-card {
+    padding: 12px; /* Reduced padding for smaller screens */
+  }
+
+  .history-card h4 {
+    font-size: 1em; /* Smaller font size for heading */
+  }
+}
+
+@media (max-width: 480px) {
+  .history-card {
+    padding: 8px; /* Further reduced padding for smaller screens */
+  }
+
+  .history-card h4 {
+    font-size: 0.9em; /* Smaller font size for heading on very small screens */
+  }
 }
