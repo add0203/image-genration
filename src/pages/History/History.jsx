@@ -107,59 +107,124 @@
 // export default History;
 
 
+// import React, { useEffect, useState } from "react";
+// import "./History.css";
+// import Navbar from "../common/Navbar/navbar";
+
+// import React from "react";
+// import { Link } from "react-router-dom";
+
+// const History = (props) => {
+//   const { userPoints, setUserPoints } = props;
+//   const [textValue, setTextValue] = useState(" ");
+//   const [data, setData] = useState([]);
+
+//   const getData = async () => {
+//     try {
+//       const res = await fetch(
+//         `${process.env.BACKEND_URL}/api/v1/image/history`,
+//         {
+//           method: "GET",
+//           headers: {
+//             "Content-Type": "application/json",
+//             authorization: "Bearer " + localStorage.getItem("authorization"),
+//           },
+//         }
+//       );
+
+//       const obj = await res.json();
+//       let data = obj.data;
+//       setData(data);
+//       console.log(obj);
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+
+//   useEffect(() => {
+//     getData();
+//   }, [textValue]);
+
+//   const cardStyle = {
+//     border: "1px solid #ddd",
+//     borderRadius: "8px",
+//     padding: "16px",
+//     margin: "16px",
+//     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+//     maxWidth: "auto",
+//     textAlign: "center",
+//   };
+
+//   const imageStyle = {
+//     width: "400px",
+//     height: "400px",
+//     objectFit: "cover",
+//     borderRadius: "8px",
+//   };
+
+//   return (
+//     <div>
+//       <Navbar pageName="history" userPoints={userPoints} setUserPoints={setUserPoints} />
+
+//       <div className="inputbox">
+//         <input
+//           onChange={(e) => setTextValue(e.target.value)}
+//           required="required"
+//           type="text"
+//           className="inputbox-input" // ClassName for input box
+//         />
+//         <i className="inputbox-i"></i>
+//       </div>
+
+//       {data.reverse().map((item) => (
+//         <div key={item._id} style={cardStyle} className="history-card">
+//           <img src={item.imageUrl} alt={item.searchText} style={imageStyle} />
+//           <h4>{item.searchText}</h4>
+//           <p>{item.imageUrl}</p>
+//           <Link to={`${item.imageUrl}`} className="history-card-link">Open</Link>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// };
+
+// export default History;
+
+
+
 import React, { useEffect, useState } from "react";
 import "./History.css";
 import Navbar from "../common/Navbar/navbar";
-
-import React from "react";
 import { Link } from "react-router-dom";
 
 const History = (props) => {
   const { userPoints, setUserPoints } = props;
-  const [textValue, setTextValue] = useState(" ");
+  const [textValue, setTextValue] = useState("");
   const [data, setData] = useState([]);
-
-  const getData = async () => {
-    try {
-      const res = await fetch(
-        `${process.env.BACKEND_URL}/api/v1/image/history`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            authorization: "Bearer " + localStorage.getItem("authorization"),
-          },
-        }
-      );
-
-      const obj = await res.json();
-      let data = obj.data;
-      setData(data);
-      console.log(obj);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getData();
   }, [textValue]);
 
-  const cardStyle = {
-    border: "1px solid #ddd",
-    borderRadius: "8px",
-    padding: "16px",
-    margin: "16px",
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-    maxWidth: "auto",
-    textAlign: "center",
-  };
+  const getData = async () => {
+    setLoading(true);
+    try {
+      const res = await fetch(`${process.env.BACKEND_URL}/api/v1/image/history`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: "Bearer " + localStorage.getItem("authorization"),
+        },
+      });
 
-  const imageStyle = {
-    width: "400px",
-    height: "400px",
-    objectFit: "cover",
-    borderRadius: "8px",
+      const obj = await res.json();
+      setData(obj.data.reverse());
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -169,21 +234,29 @@ const History = (props) => {
       <div className="inputbox">
         <input
           onChange={(e) => setTextValue(e.target.value)}
-          required="required"
+          value={textValue}
+          required
           type="text"
-          className="inputbox-input" // ClassName for input box
+          placeholder="Search..."
+          className="inputbox-input"
         />
         <i className="inputbox-i"></i>
       </div>
 
-      {data.reverse().map((item) => (
-        <div key={item._id} style={cardStyle} className="history-card">
-          <img src={item.imageUrl} alt={item.searchText} style={imageStyle} />
-          <h4>{item.searchText}</h4>
-          <p>{item.imageUrl}</p>
-          <Link to={`${item.imageUrl}`} className="history-card-link">Open</Link>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <div className="history-cards-container">
+          {data.map((item) => (
+            <div key={item._id} className="history-card">
+              <img src={item.imageUrl} alt={item.searchText} className="history-card-img" />
+              <h4 className="history-card-title">{item.searchText}</h4>
+              <p className="history-card-url">{item.imageUrl}</p>
+              <Link to={`${item.imageUrl}`} className="history-card-link">Open</Link>
+            </div>
+          ))}
         </div>
-      ))}
+      )}
     </div>
   );
 };
