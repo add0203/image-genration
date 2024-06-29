@@ -24,8 +24,9 @@
 .header-parent-container .left a {
   text-decoration: none;
   color: white;
-  font-family: "Anaheim", sans-serif;
-  font-weight: 400;
+    font-family: "Anaheim", sans-serif;
+      font-weight: 400;
+      font-style: normal;
   font-size: 1rem; /* Adjust font size */
 }
 
