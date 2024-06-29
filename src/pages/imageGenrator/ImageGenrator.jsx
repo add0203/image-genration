@@ -302,10 +302,10 @@
 // export default ImageGenerator;
 
 
-import React, { useState, useContext } from "react";
-import "./ImageGenrator.css";
-import Navbar from "../common/Navbar/navbar";
-import PointsContext from "../../context/Context";
+// import React, { useState, useContext } from "react";
+// import "./ImageGenrator.css";
+// import Navbar from "../common/Navbar/navbar";
+// import PointsContext from "../../context/Context";
 
 
 
@@ -313,6 +313,10 @@ import PointsContext from "../../context/Context";
 // import "./ImageGenerator.css";
 // import Navbar from "../common/Navbar/navbar";
 // import PointsContext from "../../context/Context";
+import React, { useState, useContext } from "react";
+import "./ImageGenrator.css";
+import Navbar from "../common/Navbar/navbar";
+import PointsContext from "../../context/Context";
 
 const ImageGenerator = () => {
   const [searchText, setSearchText] = useState("");
