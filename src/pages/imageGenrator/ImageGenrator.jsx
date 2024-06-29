@@ -394,6 +394,8 @@ const ImageGenerator = () => {
         <br />
         <span>
           {!loading && !fetchError && imageSrc && <p>Image Generated Successfully</p>}
+                 <br />
+                 <br />
         </span>
          
         <div className="inputbox">
