@@ -8,6 +8,7 @@ import "./LogIn.css";
 const LogIn = () => {
   const { login, userPoints, loggedInUser, setLoggedInUser } =
     useContext(PointsContext);
+  const [loading, setLoading] = useState(false); // Add loading state
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [responseMessage, setResponseMessage] = useState("");
@@ -20,7 +21,7 @@ const LogIn = () => {
       setIsError(true);
       return;
     }
-
+ setLoading(true); // Start loading
     try {
       const res = await fetch(`${process.env.BACKEND_URL}/api/v1/auth/logIn`, {
         method: "POST",
@@ -52,6 +53,10 @@ const LogIn = () => {
       setResponseMessage("An error occurred: " + error.message);
       setIsError(true);
     }
+    finally {
+      setLoading(false); // Stop loading once done
+    }
+
   };
 
   return (
@@ -94,6 +99,12 @@ const LogIn = () => {
           LogIn
         </button>
       </div>
+
+          {loading ? (
+            <p>processing...</p>
+          ) : (
+            <p>Failed to fetch the image. Please try again.</p>
+          )}
 
       {responseMessage && (
         <div
