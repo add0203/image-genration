@@ -1,9 +1,40 @@
-.log-in-container {
+/* .log-in-container {
   .log-in-box {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 50px;
     gap: 10px;
+  }
+}
+ */
+
+
+/* Base styles */
+.log-in-container {
+  /* Styles for log-in-container if needed */
+}
+
+.log-in-container .log-in-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+  gap: 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .log-in-container .log-in-box {
+    margin: 30px;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .log-in-container .log-in-box {
+    margin: 20px;
+    gap: 5px;
   }
 }
