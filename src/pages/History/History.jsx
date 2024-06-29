@@ -326,7 +326,7 @@ const History = (props) => {
               className="history-card-img"
             />
             <h4 className="history-card-title">{item.searchText}</h4>
-            <p className="history-card-url">{item.imageUrl}</p>
+{/*             <p className="history-card-url">{item.imageUrl}</p> */}
             <Link to={`${item.imageUrl}`} className="history-card-link">Open</Link>
           </div>
         ))}
