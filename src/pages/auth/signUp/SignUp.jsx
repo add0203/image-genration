@@ -10,7 +10,7 @@ const SignUp = () => {
   const [responseMessage, setResponseMessage] = useState("");
   const [isError, setIsError] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-
+ const [loading, setLoading] = useState(false); // Add loading state
   // userPoint context
   const { userPoints, setUserPoints } = useContext(PointsContext);
 
@@ -24,7 +24,8 @@ const SignUp = () => {
     }
 
     // setPassword(trimExtraSpaces(password));
-    console.log(email + " " + password);
+    // console.log(email + " " + password);
+     setLoading(true); // Start loading
     try {
       const res = await fetch(`${process.env.BACKEND_URL}/api/v1/auth/signUp`, {
         method: "POST",
@@ -52,6 +53,10 @@ const SignUp = () => {
     } catch (error) {
       setResponseMessage("An error occurred: " + error.message);
       setIsError(true);
+    }
+    
+finally {
+      setLoading(false); // Stop loading once done
     }
   };
 
@@ -91,6 +96,7 @@ const SignUp = () => {
           SignUp
         </button>
       </div>
+       {loading && <p>Processing...</p>}
       {responseMessage && (
         <div
           style={{
