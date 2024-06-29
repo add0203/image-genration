@@ -384,7 +384,7 @@ const ImageGenerator = () => {
           ) : (
             imageSrc && <img src={imageSrc} alt="Generated" />
           )}
-          {fetchError && <p>Failed to fetch the image. Please try again.</p>}
+          {fetchError && <p>Failed to fetch the image. Please try again. API expired content to developer to update the API</p>}
           {!loading && !fetchError && imageSrc && <p>Image Generated Successfully</p>}
         </div>
         <br />
