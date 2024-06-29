@@ -214,7 +214,8 @@ const LogIn = () => {
           LogIn
         </button>
       </div>
-
+      <p>Test User</p>
+      <p>email : car , password : test</p>
       {loading && <p>Processing...</p>}
 
       {responseMessage && (
