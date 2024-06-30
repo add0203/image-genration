@@ -388,7 +388,7 @@ const ImageGenerator = () => {
               </>
               )
           )}
-           {fetchError && <p>Failed to Generate the image. API expired contact to developer to update the API</p>}
+           {fetchError && <p>Fetch API expired contact to developer to update the API Contact detail is on home page. Thank you for usign AI Image Genrator</p>}
           
         </div>
         <br />
